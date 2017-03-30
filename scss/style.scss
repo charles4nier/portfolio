@@ -1,0 +1,113 @@
+$lightGrey: #eeeeee;
+$orange: #ed6a5a;
+$lagoon: #2ac1ad;
+$white: white;
+$black: black;
+$darkGrey: #333333;
+
+body {
+  color: #303030;
+  background-color: $black;
+}
+
+li {
+  list-style-type: none;
+}
+
+
+.titleSection {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+  -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+  -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
+  box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+}
+
+#intro {
+  background-color: $white;
+  height: 100vh;
+  div {
+    width: 800px;
+    height: 500px;
+    margin: 10% auto 0 auto;
+    canvas {
+    }
+  }
+}
+
+#latestWork, #latestWork2 {
+  padding: 35px 0;
+  background-color: $lightGrey;
+  figure {
+    color: $white;
+    background-color: $black;
+    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+    -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
+    box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+  }
+}
+
+#skills {
+  div {
+      -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+      -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
+      box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+      padding: 35px 0;
+      background-color: white;
+      height: 500px;
+    &:last-child {
+      background-color: $orange;
+      color: white;
+    }
+    ul {
+      margin-left: 15%;
+      li {
+        p {
+          color: white;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+#aboutMe {
+  background-color: $lagoon;
+  padding: 40px 0;
+  h3 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  div {
+    height: 500px;
+    background-color: $lightGrey;
+    margin-right: 15px;
+    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+    -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
+    box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+    .dragMe {
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border: 1px solid red;
+      p {
+        text-align: center;
+        margin-top: 16px;
+        color: $white;
+      }
+    }
+  }
+  .firstChild {
+    width: 550px;
+  }
+  .lastChild {
+    background-color: $white;
+  }
+}
