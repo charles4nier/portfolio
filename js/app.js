@@ -156,7 +156,7 @@ $(function () {
       var hash = this.hash;
       $('html, body').animate({
           scrollTop: $(this.hash).offset().top
-        }, 1000, "easeOutQuart", function(){
+        }, 1000, "easeOutBack", function(){
           window.location.hash = hash;
           });
     });
@@ -164,7 +164,23 @@ $(function () {
 
 scrollSpy($('.scrollButton'));
 
-// Animations des progress bar dans la partie Compétences //////
+
+
+
+//// fonction scroll event  qui déclenche d'autres foncitons ou anim ////
+
+function onScrollEvent(targetSection, funcToLaunch, verifyVar, number) {
+  $(window).scroll(function() {
+
+    if(($(window).scrollTop() >= targetSection.offset().top - number) && (verifyVar == false)) {
+      setTimeout(funcToLaunch, 500);
+      verifyVar = true;
+      return verifyVar;
+    }
+  });
+}
+
+////// Animations des progress bar dans la partie Compétences //////
 
   function multipleProgressBar(elemToAnim,elemWidth) {
     let width = 1;
@@ -186,22 +202,41 @@ scrollSpy($('.scrollButton'));
     }
   }
 
-  let scrollPositionAtSkills = false;
+  function launchMultipleProgressBar() {
+    let i = 0;
+    for (i = 0  ; i <= 100; i+=5) {
+        multipleProgressBar($(".w" + i), i);
+      }
+  }
 
-// lancement de la fonction quand la position de l'écran est bonne
+  let screenAtSkills = false;
 
-  $(window).scroll(function() {
+// lancement de la fonction launchMultipleProgressBar quand la position de l'écran est bonne
 
-    if(($(window).scrollTop() >= $('#skills').offset().top - 350) && (scrollPositionAtSkills == false)) {
-      let i = 0;
-      for (i = 0  ; i <= 100; i+=5) {
-          multipleProgressBar($(".w" + i), i);
-        }
-      scrollPositionAtSkills = true;
-      return scrollPositionAtSkills;
-    }
-  });
+onScrollEvent($('#skills'), launchMultipleProgressBar, screenAtSkills, 350);
 
-//fermeture de la fonciton jquery
-  
+
+
+///////// Apparition du formulaire ////////////////////
+
+let screenAtContact = false;
+
+
+function showForm() {
+  $('.formContainer').animate({
+  width: "400px",
+}, 1000, "easeOutBack", function() {
+  $('.form').fadeIn();
+  $('.closeFormContainer').fadeIn().addClass('animated');
+  $('.closeFormContainer').addClass('changeBar');
+  $('.formContainer h3').fadeIn();
+});
+
+screenAtContact = true;
+return screenAtContact;
+}
+
+onScrollEvent($('#contact'), showForm, screenAtContact, 350);
+//fermeture de la fonction jquery
+
 });

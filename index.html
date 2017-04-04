@@ -5,6 +5,7 @@
     <title></title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
   </head>
   <body>
     <header class="container-fluid">
@@ -14,10 +15,10 @@
       </div>
       <nav class="col-md-4">
         <ul class="list-inline">
-          <li>Derniers Projets</li>
-          <li><a class="scrollButton" href="#test">Compétences</a></li>
-          <li>Moi !</li>
-          <li>Contact</li>
+          <li><a class="scrollButton" href="#Projets">Derniers projets</a></li>
+          <li><a class="scrollButton" href="#Competences">Compétences</a></li>
+          <li><a class="scrollButton" href="#Moi">Moi !</a></li>
+          <li><a class="scrollButton" href="#Contact">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -28,6 +29,7 @@
           </canvas>
         </div>
       </section>
+      <span id="Projets"></span>
       <section id="latestWork" class="row">
         <h1 class="titleSection">Mes derniers projets</h1>
         <div class="col-md-4 col-sm-4">
@@ -69,6 +71,7 @@
           </figure>
         </div>
       </section>
+      <span id="Competences"></span>
       <section id="skills" class="row">
         <div class="col-md-6">
           <h1 class="titleSection">Développement Web</h1>
@@ -92,6 +95,7 @@
           </ul>
         </div>
       </section>
+      <span id="Moi"></span>
       <section id="aboutMe" class="row">
         <h3 id="moi">Attrapez les carrés noirs pour savoir qui je suis !</h3>
         <div class="col-md-6 col-md-offset-1 firstChild">
@@ -116,8 +120,25 @@
 
         </div>
       </section>
+      <span id="Contact"></span>
       <section id="contact" class="row">
-
+        <div class="blackContainer">
+          <div class="formContainer">
+            <div class="closeFormContainer">
+              <div class="closeForm bar1 black"></div>
+              <div class="closeForm bar2 black"></div>
+              <div class="buttonCloseForm"></div>
+            </div>
+            <h3>Test</h3>
+            <form class="form" action="index.html" method="post">
+              <input type="text" name="firstName" value="" placeholder="Votre prénom" required>
+              <input type="text" name="lastName" value="" placeholder="Votre nom" required>
+              <input type="text" name="email" value="" placeholder="Votre mail" required>
+              <textarea name="message" rows="6" cols="40" required></textarea>
+              <input class="submit" type="submit" name="submit" value="Envoyer">
+            </form>
+          </div>
+        </div>
       </section>
     </main>
     <footer class="container-fluid">

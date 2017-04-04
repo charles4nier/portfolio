@@ -34,11 +34,16 @@ header {
   padding: 35px 0;
   background-color: #eeeeee; }
   #latestWork figure, #latestWork2 figure {
+    width: 280px;
     color: white;
     background-color: black;
     -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
     -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49); }
+    box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+    transition: all 0.2s ease-in-out;
+    transform: scale(1); }
+    #latestWork figure:hover, #latestWork2 figure:hover {
+      transform: scale(1.1); }
 
 #skills div {
   -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
@@ -82,5 +87,145 @@ header {
     width: 550px; }
   #aboutMe .lastChild {
     background-color: white; }
+
+#contact {
+  background-color: white;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #contact .blackContainer {
+    position: relative;
+    background-color: black;
+    width: 500px;
+    height: 500px;
+    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+    -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+    box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49); }
+    #contact .blackContainer .formContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: absolute;
+      background-color: #2ac1ad;
+      top: 30px;
+      left: -40px;
+      width: 4px;
+      height: 440px; }
+      #contact .blackContainer .formContainer h3 {
+        display: none; }
+      #contact .blackContainer .formContainer .closeFormContainer {
+        display: none;
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background-color: white;
+        right: -30px;
+        top: 16px;
+        transition: all 0.6s ease-in-out;
+        transform: scale(0); }
+        #contact .blackContainer .formContainer .closeFormContainer .buttonCloseForm {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          top: 15px;
+          left: 15px;
+          cursor: pointer; }
+      #contact .blackContainer .formContainer .form {
+        width: 300px;
+        display: none;
+        flex-direction: column;
+        padding: 40px 40px; }
+        #contact .blackContainer .formContainer .form input {
+          margin-top: 15px; }
+        #contact .blackContainer .formContainer .form textarea {
+          margin-top: 15px; }
+        #contact .blackContainer .formContainer .form .submit {
+          background-color: black;
+          border: none;
+          color: white;
+          height: 40px;
+          width: 100px; }
+
+.animated {
+  transform: scale(1); }
+
+.bar1, .bar2 {
+  position: absolute;
+  background-color: #ed6a5a;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  cursor: pointer; }
+
+.bar1 {
+  height: 4px;
+  width: 20px;
+  animation-name: retour1; }
+
+.bar2 {
+  animation-name: retour2;
+  height: 20px;
+  width: 4px; }
+
+.changeBar .bar1 {
+  animation-delay: 0.2s;
+  animation-name: rotate1; }
+
+.changeBar .bar2 {
+  animation-delay: 0.2s;
+  animation-name: rotate2; }
+
+@keyframes retour1 {
+  0% {
+    transform: rotate(45deg);
+    left: 20px;
+    top: 28px;
+    background-color: black; }
+  100% {
+    transform: rotate(-180deg);
+    left: 0;
+    top: 0;
+    background-color: #ed6a5a; } }
+@keyframes retour2 {
+  0% {
+    transform: rotate(45deg);
+    right: 28px;
+    bottom: 20px;
+    background-color: black; }
+  100% {
+    transform: rotate(360deg);
+    right: 0;
+    bottom: 0;
+    background-color: #ed6a5a; } }
+@keyframes rotate1 {
+  0% {
+    transform: rotate(0deg);
+    left: 0;
+    top: 0;
+    background-color: #ed6a5a; }
+  100% {
+    transform: rotate(135deg);
+    left: 20px;
+    top: 28px;
+    background-color: black; } }
+@keyframes rotate2 {
+  0% {
+    transform: rotate(0deg);
+    right: 0;
+    bottom: 0;
+    background-color: #ed6a5a; }
+  100% {
+    transform: rotate(135deg);
+    right: 28px;
+    bottom: 20px;
+    background-color: black; } }
+footer {
+  height: 300px; }
+
+#Projets, #Competences, #Moi, #Contact {
+  position: relative;
+  bottom: 100px; }
 
 /*# sourceMappingURL=style.css.map */
