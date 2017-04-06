@@ -6,99 +6,91 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   </head>
   <body>
-    <header class="container-fluid">
-      <div class="col-md-offset-2 col-md-4">
+    <header>
+      <div>
         <h1>Charles FOURNIER</h1>
         <p>Développeur Web Junior</p>
       </div>
-      <nav class="col-md-4">
-        <ul class="list-inline">
-          <li><a class="scrollButton" href="#Projets">Derniers projets</a></li>
-          <li><a class="scrollButton" href="#Competences">Compétences</a></li>
-          <li><a class="scrollButton" href="#Moi">Moi !</a></li>
-          <li><a class="scrollButton" href="#Contact">Contact</a></li>
+      <nav>
+        <ul>
+          <li><a id="homeLink" class="scrollButton activeLink" href="#home">Accueil</a></li>
+          <li><a id="latestWorkLink" class="scrollButton" href="#latestWork">Derniers projets</a></li>
+          <li><a id="skillsLink" class="scrollButton skillsLink" href="#skills">Compétences</a></li>
+          <li><a id="aboutMeLink" class="scrollButton aboutMeLink" href="#aboutMe">Moi !</a></li>
+          <li><a id="contactLink" class="scrollButton contactLink" href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
     <main class="container">
-      <section id="intro" class="row">
+      <section id="home" class="row">
         <div class="">
           <canvas id="canvas" width="800" height="500">
           </canvas>
         </div>
       </section>
-      <span id="Projets"></span>
+
       <section id="latestWork" class="row">
-        <h1 class="titleSection">Mes derniers projets</h1>
-        <div class="col-md-4 col-sm-4">
-          <figure>
+        <h1 class="titleSection fadeInDown">Mes derniers projets</h1>
+        <div class="figureContainer">
+          <figure id="figure" class="fadeIn">
             <a href="https://www.learn-eat.fr/" target="_blank"><img src="links/learnEat.jpg" alt="une main et des avec une assiette de légume" class="img-responsive"></a>
             <p>Learn Eat</p>
           </figure>
-        </div>
-        <div class="col-md-4 col-sm-4">
-          <figure>
+          <figure id="figure" class="fadeIn">
             <a href="http://www.ikmusic.org/" target="_blank"><img src="links/ik.jpg" alt="des lignes d'écritures" class="img-responsive"></a>
             <p>Ik Music</p>
           </figure>
-        </div>
-        <div class="col-md-4 col-sm-4">
-          <figure>
+          <figure id="figure" class="fadeIn">
             <a href="https://charles4nier.github.io/royco/" target="_blank"><img src="links/royco.jpg" alt="des tomates" class="img-responsive"></a>
             <p>Les légumes de Cédric</p>
           </figure>
         </div>
-      </section>
-      <section id="latestWork2" class="row">
-        <div class="col-md-4 col-sm-4">
-          <figure>
+        <div class="figureContainer">
+          <figure id="figure" class="fadeIn">
             <a href="http://www.ikmusic.org/" target="_blank"><img src="links/ik.jpg" alt="des lignes d'écritures" class="img-responsive"></a>
             <p>Ik Music</p>
           </figure>
-        </div>
-        <div class="col-md-4 col-sm-4">
-          <figure>
+          <figure id="figure" class="fadeIn">
             <a href="https://dzov.github.io/act/" target="_blank"><img src="links/act.jpg" alt="des tomates" class="img-responsive"></a>
             <p>Act!</p>
           </figure>
-        </div>
-        <div class="col-md-4 col-sm-4">
-          <figure>
+          <figure id="figure" class="fadeIn">
             <a href="http://fablab.simplon.co/" target="_blank"><img src="links/fablab.jpg" alt="une main et des avec une assiette de légume" class="img-responsive"></a>
             <p id="test">Le fablab solidaire</p>
           </figure>
         </div>
       </section>
-      <span id="Competences"></span>
+
       <section id="skills" class="row">
-        <div class="col-md-6">
-          <h1 class="titleSection">Développement Web</h1>
+        <h1 class="titleSection fadeInDown">Compétences</h1>
+        <div class="col-md-6 fadeIn">
           <ul>
-            <li>HTML5/Boostrap : <p class="w60"></p></li>
-            <li>CSS3/SASS : <p class="w60"></p></li>
-            <li>JS : <p class="w40"></p></li>
-            <li>JQUERY : <p class="w50"></p></li>
-            <li>PHP : <p class="w40"></p></li>
-            <li>UX : <p class="w60"></p></li>
+            <li>HTML5 : <p class="w80 orange"></p></li>
+            <li>Bootstrap : <p class="w60 orange"></p></li>
+            <li>Css 3 : <p class="w80 orange"></p></li>
+            <li>SASS : <p class="w80 orange"></p></li>
+            <li>JavaScript : <p class="w60 orange"></p></li>
+            <li>JQUERY : <p class="w70 orange"></p></li>
           </ul>
         </div>
-        <div class="col-md-6">
-          <h1 class="titleSection">Mes talents cachés</h1>
+        <div class="col-md-6 fadeIn">
           <ul>
-            <li>La cuisine : MIAM !</li>
-            <li>L'anglais : I am Charles 4nier</li>
-            <li>L'espagnol : Goedemorgen... ?!</li>
-            <li>Ecrire des histoires : He escribido un livro interactivo por los ninos, y siempre lo escribo ! Puedes ver la presentacion ahi (vous voyez que je parle espagnol) : <a href="https://www.youtube.com/watch?v=MY9t6T1WNuc">La Famille Strudel</a></li>
-            <li>Faire du son : vous pouvez recliquer sur le lien du dessus, c'est moi aussi !</li>
+            <li>Angular : <p class="w50 orange"></p></li>
+            <li>Php 7 : <p class="w60"></p></li>
+            <li>SQL : <p class="w60"></p></li>
+            <li>GitHub : <p class="w60"></p></li>
+            <li>Ux : <p class="w60"></p></li>
+            <li>Linux : <p class="w40"></p></li>
           </ul>
         </div>
       </section>
-      <span id="Moi"></span>
+
       <section id="aboutMe" class="row">
-        <h3 id="moi">Attrapez les carrés noirs pour savoir qui je suis !</h3>
-        <div class="col-md-6 col-md-offset-1 firstChild">
+        <h1 id="moi" class="fadeInDown">Qui suis-je ?</h1>
+        <div class="col-md-6 col-md-offset-1 firstDivAboutMe fadeInLeft">
 
           <div id="drag1" class="dragMe">
             <p>?</p>
@@ -116,11 +108,10 @@
             <p>?</p>
           </div>
         </div>
-        <div class="col-md-4 lastChild ">
+        <div class="col-md-4 lastChildDivAboutMe fadeInRight">
 
         </div>
       </section>
-      <span id="Contact"></span>
       <section id="contact" class="row">
         <div class="blackContainer">
           <div class="formContainer">
@@ -129,24 +120,27 @@
               <div class="closeForm bar2 black"></div>
               <div class="buttonCloseForm"></div>
             </div>
-            <h3>Test</h3>
+            <h3>Me contacter ?</h3>
             <form class="form" action="index.html" method="post">
               <input type="text" name="firstName" value="" placeholder="Votre prénom" required>
               <input type="text" name="lastName" value="" placeholder="Votre nom" required>
               <input type="text" name="email" value="" placeholder="Votre mail" required>
-              <textarea name="message" rows="6" cols="40" required></textarea>
+              <textarea name="message" required></textarea>
               <input class="submit" type="submit" name="submit" value="Envoyer">
             </form>
+          </div>
+          <div class="contactContainer">
+            <p>charles.4nier@gmail.com</p>
+            <a>https://github.com/charles4nier</a>
           </div>
         </div>
       </section>
     </main>
-    <footer class="container-fluid">
+    <footer id="footer" class="container-fluid">
 
     </footer>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/ease.js">
-    </script>
+    <script type="text/javascript" src="js/ease.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>

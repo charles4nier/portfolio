@@ -1,9 +1,22 @@
+@font-face {
+  src: url("../fonts/Oswald-Bold.ttf");
+  font-family: "Oswald-Bold"; }
+@font-face {
+  src: url("../fonts/Oswald-Regular.ttf");
+  font-family: "Oswald-Regular"; }
+* {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px; }
+
 body {
   color: #303030;
-  background-color: black; }
+  background-color: #242424; }
 
 li {
   list-style-type: none; }
+
+h1, h3 {
+  font-family: "Oswald-Bold"; }
 
 .titleSection {
   text-align: center;
@@ -13,67 +26,133 @@ header {
   position: fixed;
   width: 100%;
   background-color: white;
-  z-index: 1;
-  -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-  -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49); }
+  header div {
+    text-align: center;
+    font-family: "Oswald-Bold";
+    color: #242424; }
+    header div p {
+      color: #ed6a5a; }
+  header nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    header nav ul li {
+      margin-right: 15px; }
+      header nav ul li a {
+        font-family: "Oswald-Regular";
+        position: relative;
+        color: #242424;
+        transition: all 0.2s ease-in-out;
+        z-index: 3; }
+        header nav ul li a:hover {
+          color: #ed6a5a;
+          text-decoration: none; }
+        header nav ul li a:focus {
+          color: #242424;
+          outline: none;
+          text-decoration: none; }
+        header nav ul li a:before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 2px;
+          background-color: #2ac1ad;
+          bottom: -2px;
+          transition: all 0.4s ease-in-out;
+          transform: scale(0); }
+      header nav ul li .activeLink {
+        color: #ed6a5a; }
+        header nav ul li .activeLink:before {
+          transform: scale(1); }
+        header nav ul li .activeLink:focus {
+          color: #ed6a5a; }
 
-#intro {
+#home {
   background-color: #2ac1ad;
   height: 100vh; }
-  #intro div {
+  #home div {
     background-color: white;
     width: 800px;
     height: 500px;
     margin: 10% auto 0 auto;
-    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
     box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49); }
 
-#latestWork, #latestWork2 {
+#latestWork {
   padding: 35px 0;
-  background-color: #eeeeee; }
-  #latestWork figure, #latestWork2 figure {
-    width: 280px;
-    color: white;
-    background-color: black;
-    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    transition: all 0.2s ease-in-out;
-    transform: scale(1); }
-    #latestWork figure:hover, #latestWork2 figure:hover {
-      transform: scale(1.1); }
-
-#skills div {
-  -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-  -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-  box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-  padding: 35px 0;
-  background-color: white;
-  height: 500px; }
-  #skills div:last-child {
-    background-color: #ed6a5a;
-    color: white; }
-  #skills div ul {
-    margin-left: 15%; }
-    #skills div ul li p {
+  height: 900px;
+  background-color: #eeeeee;
+  font-family: "Oswald-Bold"; }
+  #latestWork h1 {
+    display: none; }
+  #latestWork .figureContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; }
+    #latestWork .figureContainer:last-child {
+      margin-top: 30px; }
+    #latestWork .figureContainer figure {
+      display: none;
+      width: 300px;
       color: white;
-      text-align: center; }
+      background-color: #242424;
+      box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.49);
+      transition: all 0.2s ease-in-out;
+      transform: scale(1); }
+      #latestWork .figureContainer figure:hover {
+        transform: scale(1.1);
+        background-color: #2ac1ad;
+        color: #242424;
+        box-shadow: 0px 10px 10px rgba(100, 100, 100, 0.49); }
+      #latestWork .figureContainer figure p {
+        text-align: center;
+        padding: 10px 10px 0 10px; }
+
+#skills {
+  height: 630px;
+  padding-top: 10px;
+  background-color: #2ac1ad; }
+  #skills h1 {
+    color: #242424;
+    font-family: "Oswald-Bold";
+    display: none; }
+  #skills div {
+    display: none;
+    box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
+    padding: 35px 0;
+    background-color: white;
+    color: #ed6a5a;
+    height: 500px; }
+    #skills div:last-child {
+      background-color: #ed6a5a;
+      color: white; }
+    #skills div ul {
+      margin-left: 15%;
+      margin-top: 20px; }
+      #skills div ul li p {
+        margin-top: 7px;
+        color: white;
+        text-align: center; }
 
 #aboutMe {
   background-color: #2ac1ad;
-  padding: 40px 0; }
-  #aboutMe h3 {
+  padding: 10px 0;
+  height: 700px; }
+  #aboutMe h1 {
+    margin-top: 30px;
     text-align: center;
-    margin-bottom: 40px; }
+    margin-bottom: 40px;
+    display: none; }
   #aboutMe div {
+    display: none;
     height: 500px;
     background-color: #eeeeee;
     margin-right: 15px;
-    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49); }
+    box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49); }
     #aboutMe div .dragMe {
       width: 50px;
       height: 50px;
@@ -82,10 +161,11 @@ header {
       #aboutMe div .dragMe p {
         text-align: center;
         margin-top: 16px;
-        color: white; }
-  #aboutMe .firstChild {
+        color: white;
+        box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49); }
+  #aboutMe .firstDivAboutMe {
     width: 550px; }
-  #aboutMe .lastChild {
+  #aboutMe .lastChildDivAboutMe {
     background-color: white; }
 
 #contact {
@@ -96,12 +176,10 @@ header {
   align-items: center; }
   #contact .blackContainer {
     position: relative;
-    background-color: black;
+    background-color: #242424;
     width: 500px;
     height: 500px;
-    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49); }
+    box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49); }
     #contact .blackContainer .formContainer {
       display: flex;
       align-items: center;
@@ -109,10 +187,11 @@ header {
       flex-direction: column;
       position: absolute;
       background-color: #2ac1ad;
-      top: 30px;
+      top: 60px;
       left: -40px;
       width: 4px;
-      height: 440px; }
+      height: 380px;
+      z-index: 2; }
       #contact .blackContainer .formContainer h3 {
         display: none; }
       #contact .blackContainer .formContainer .closeFormContainer {
@@ -122,9 +201,7 @@ header {
         height: 60px;
         background-color: white;
         right: -30px;
-        top: 16px;
-        transition: all 0.6s ease-in-out;
-        transform: scale(0); }
+        top: 16px; }
         #contact .blackContainer .formContainer .closeFormContainer .buttonCloseForm {
           position: absolute;
           width: 30px;
@@ -135,21 +212,38 @@ header {
       #contact .blackContainer .formContainer .form {
         width: 300px;
         display: none;
-        flex-direction: column;
-        padding: 40px 40px; }
+        padding: 0 30px; }
         #contact .blackContainer .formContainer .form input {
-          margin-top: 15px; }
+          margin-top: 15px;
+          width: 250px; }
         #contact .blackContainer .formContainer .form textarea {
-          margin-top: 15px; }
+          margin-top: 15px;
+          width: 250px; }
         #contact .blackContainer .formContainer .form .submit {
-          background-color: black;
+          background-color: #242424;
           border: none;
           color: white;
           height: 40px;
           width: 100px; }
-
-.animated {
-  transform: scale(1); }
+    #contact .blackContainer .contactContainer {
+      background-color: #ed6a5a;
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: 260px;
+      top: 260px;
+      color: white;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      padding-right: 35px; }
+      #contact .blackContainer .contactContainer p {
+        display: none; }
+      #contact .blackContainer .contactContainer a {
+        display: none;
+        color: white; }
 
 .bar1, .bar2 {
   position: absolute;
@@ -222,7 +316,7 @@ header {
     bottom: 20px;
     background-color: black; } }
 footer {
-  height: 300px; }
+  height: 100px; }
 
 #Projets, #Competences, #Moi, #Contact {
   position: relative;

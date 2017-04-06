@@ -1,9 +1,28 @@
+@font-face {
+  src: url("../fonts/Oswald-Bold.ttf");
+  font-family: "Oswald-Bold";
+}
+
+
+@font-face {
+  src: url("../fonts/Oswald-Regular.ttf");
+  font-family: "Oswald-Regular";
+}
+
+
+
+
 $lightGrey: #eeeeee;
 $orange: #ed6a5a;
 $lagoon: #2ac1ad;
 $white: white;
-$black: black;
+$black: #242424;
 $darkGrey: #333333;
+
+* {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+}
 
 body {
   color: #303030;
@@ -14,6 +33,9 @@ li {
   list-style-type: none;
 }
 
+h1, h3 {
+  font-family: "Oswald-Bold";
+}
 
 .titleSection {
   text-align: center;
@@ -24,13 +46,67 @@ header {
   position: fixed;
   width: 100%;
   background-color: $white;
-  z-index: 1;
-  -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-  -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
-  box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+  div {
+    text-align: center;
+    font-family: "Oswald-Bold";
+    color: $black;
+    p {
+      color: $orange;
+    }
+  }
+  nav {
+    ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      li {
+        margin-right: 15px;
+        a {
+          font-family: "Oswald-Regular";
+          position: relative;
+          color: $black;
+          transition: all 0.2s ease-in-out;
+          z-index: 3;
+          &:hover {
+            color: $orange;
+            text-decoration: none;
+          }
+          &:focus {
+            color: $black;
+            outline: none;
+            text-decoration: none;
+          }
+          &:before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: $lagoon;
+            bottom : -2px;
+            transition: all 0.4s ease-in-out;
+            transform: scale(0);
+          }
+        }
+        .activeLink {
+            color: $orange;
+          &:before {
+            transform: scale(1);
+          }
+          &:focus {
+            color: $orange;
+          }
+        }
+      }
+    }
+  }
 }
 
-#intro {
+#home {
   background-color: $lagoon;
   height: 100vh;
   div {
@@ -38,48 +114,75 @@ header {
     width: 800px;
     height: 500px;
     margin: 10% auto 0 auto;
-    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
-    box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+    box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
     canvas {
     }
   }
 }
 
-#latestWork, #latestWork2 {
+#latestWork {
   padding: 35px 0;
+  height: 900px;
   background-color: $lightGrey;
-  figure {
-    width: 280px;
-    color: $white;
-    background-color: $black;
-    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
-    box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
-    transition: all 0.2s ease-in-out;
-    transform: scale(1);
-    &:hover {
-      transform: scale(1.1);
+  font-family: "Oswald-Bold";
+  h1 {
+    display: none;
+  }
+  .figureContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    &:last-child {
+      margin-top: 30px;
+    }
+    figure {
+      display: none;
+      width: 300px;
+      color: $white;
+      background-color: $black;
+      box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.49);
+      transition: all 0.2s ease-in-out;
+      transform: scale(1);
+      &:hover {
+        transform: scale(1.1);
+        background-color: $lagoon;
+        color: $black;
+        box-shadow: 0px 10px 10px rgba(100, 100, 100, 0.49);
+      }
+      p {
+        text-align: center;
+        padding: 10px 10px 0 10px;
+      }
     }
   }
 }
 
 #skills {
+  height: 630px;
+  padding-top: 10px;
+  background-color: $lagoon;
+  h1 {
+    color: $black;
+    font-family: "Oswald-Bold";
+    display: none;
+  }
   div {
-      -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-      -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
-      box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+      display: none;
+      box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
       padding: 35px 0;
-      background-color: white;
+      background-color: $white;
+      color: $orange;
       height: 500px;
-    &:last-child {
+      &:last-child {
       background-color: $orange;
-      color: white;
+      color: $white;
     }
     ul {
       margin-left: 15%;
+      margin-top: 20px;
       li {
         p {
+          margin-top: 7px;
           color: white;
           text-align: center;
         }
@@ -90,18 +193,20 @@ header {
 
 #aboutMe {
   background-color: $lagoon;
-  padding: 40px 0;
-  h3 {
+  padding: 10px 0;
+  height: 700px;
+  h1 {
+    margin-top: 30px;
     text-align: center;
     margin-bottom: 40px;
+    display: none;
   }
   div {
+    display: none;
     height: 500px;
     background-color: $lightGrey;
     margin-right: 15px;
-    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
-    box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+    box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
     .dragMe {
       width: 50px;
       height: 50px;
@@ -111,13 +216,14 @@ header {
         text-align: center;
         margin-top: 16px;
         color: $white;
+        box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
       }
     }
   }
-  .firstChild {
+  .firstDivAboutMe {
     width: 550px;
   }
-  .lastChild {
+  .lastChildDivAboutMe {
     background-color: $white;
   }
 }
@@ -135,9 +241,7 @@ header {
     background-color: $black;
     width: 500px;
     height: 500px;
-    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
-    box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+    box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
 
     .formContainer {
       display: flex;
@@ -146,11 +250,11 @@ header {
       flex-direction: column;
       position:absolute;
       background-color: $lagoon;
-      top: 30px;
+      top: 60px;
       left: -40px;
       width: 4px;
-      height: 440px;
-
+      height: 380px;
+      z-index: 2;
       h3 {
         display: none;
       }
@@ -163,8 +267,8 @@ header {
         background-color: $white;
         right: -30px;
         top: 16px;
-        transition: all 0.6s ease-in-out;
-        transform: scale(0);
+        // transition: all 0.6s ease-in-out;
+        // transform: scale(0);
         .buttonCloseForm {
           position: absolute;
           width: 30px;
@@ -178,13 +282,14 @@ header {
       .form {
         width: 300px;
         display: none;
-        flex-direction: column;
-        padding: 40px 40px;
+        padding: 0 30px;
         input {
           margin-top: 15px;
+          width: 250px;
         }
         textarea {
           margin-top: 15px;
+          width: 250px;
         }
         .submit {
           background-color: $black;
@@ -195,14 +300,31 @@ header {
         }
       }
     }
+
+    .contactContainer {
+      background-color: $orange;
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: 260px;
+      top: 260px;
+      color: $white;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      padding-right: 35px;
+      p {
+        display: none;
+      }
+      a {
+        display: none;
+        color: white;
+      }
+    }
   }
 }
-
-
-.animated {
-  transform: scale(1);
-}
-
 
 //animation des bars de la fermeture du formulaire
 
@@ -259,7 +381,7 @@ header {
 
 
 footer {
-  height: 300px;
+  height: 100px;
 }
 
 #Projets,#Competences, #Moi, #Contact {

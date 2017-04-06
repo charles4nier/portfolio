@@ -1,5 +1,6 @@
 $(function () {
 
+  $(this).scrollTop(0);
 
   ////////////////////// le dessin du visage //////////////////////////
 
@@ -10,7 +11,7 @@ $(function () {
 
   //forme visage
   context.lineWidth = "3";
-  context.strokeStyle = "black";
+  context.strokeStyle = "#242424";
   context.lineJoin = "bevel";
 
   let points = [
@@ -37,7 +38,7 @@ $(function () {
 
   //forme oreille droite
   context.lineWidth = "3";
-  context.strokeStyle = "black";
+  context.strokeStyle = "#242424";
   context.beginPath();
   context.moveTo(478, 295);
   context.lineTo(496, 288);
@@ -47,7 +48,7 @@ $(function () {
 
   //forme cheveux
   context.lineWidth = "3";
-  context.strokeStyle = "black";
+  context.strokeStyle = "#242424";
   context.beginPath();
   context.moveTo(506, 235);
   context.lineTo(496, 140);
@@ -62,7 +63,7 @@ $(function () {
 
   //forme cheveux oreille gauche
   context.lineWidth = "3";
-  context.strokeStyle = "black";
+  context.strokeStyle = "#242424";
   context.beginPath();
   context.moveTo(292, 124);
   context.lineTo(275, 124);
@@ -73,7 +74,7 @@ $(function () {
 
   // oreille gauche
   context.lineWidth = "3";
-  context.strokeStyle = "black";
+  context.strokeStyle = '#242424';
   context.beginPath();
   context.moveTo(282, 230);
   context.lineTo(251, 229);
@@ -84,7 +85,7 @@ $(function () {
 
   //nez
   context.lineWidth = "3";
-  context.strokeStyle = "black";
+  context.strokeStyle = "#242424";
   context.beginPath();
   context.moveTo(388, 165);
   context.lineTo(390, 303);
@@ -96,7 +97,7 @@ $(function () {
 
   //sourcil droit
   context.lineWidth = "3";
-  context.strokeStyle = "black";
+  context.strokeStyle = "#242424";
   context.beginPath();
   context.moveTo(400, 225);
   context.lineTo(460, 227);
@@ -114,7 +115,7 @@ $(function () {
 
   //oeil droit
   context.lineWidth = "3";
-  context.strokeStyle = "black";
+  context.strokeStyle = "#242424";
   context.beginPath();
   context.moveTo(415, 250);
   context.lineTo(436, 235);
@@ -124,7 +125,7 @@ $(function () {
 
   //oeil gauche
   context.lineWidth = "3";
-  context.strokeStyle = "black";
+  context.strokeStyle = "#242424";
   context.beginPath();
   context.moveTo(355, 250);
   context.lineTo(336, 235);
@@ -137,7 +138,7 @@ $(function () {
     context.save();
   }
   context.lineWidth = "3";
-  context.strokeStyle = "black";
+  context.strokeStyle = "#242424";
   context.beginPath();
   context.moveTo(420, 343);
   context.lineTo(390, 353);
@@ -148,56 +149,178 @@ $(function () {
 
 ///////////////////////// Les animations sur le restes du site ////////////
 
-//Smooth scroll //
+
+
+  let figure = $('figure');
+
+
+      // Section variable //
+
+  let home = $('#home');
+  let latestWork = $('#latestWork');
+  let skills = $('#skills');
+  let aboutMe = $('#aboutMe');
+  let contact = $('#contact');
+  let footer = $('#footer');
+
+      // Link variable
+
+  let homeLink = $('#homeLink');
+  let latestWorkLink = $('#latestWorkLink');
+  let skillsLink = $('#skillsLink');
+  let aboutMeLink = $('#aboutMeLink');
+  let contactLink = $('#contactLink');
+
+
+
+  //Smooth scroll //
+
+
 
   function scrollSpy(scrollButton) {
     scrollButton.click(function(e) {
       e.preventDefault();
-      var hash = this.hash;
       $('html, body').animate({
-          scrollTop: $(this.hash).offset().top
-        }, 1000, "easeOutBack", function(){
-          window.location.hash = hash;
-          });
+          scrollTop: $(this.hash).offset().top - 102
+        }, 750, "easeInCubic");
     });
   }
 
-scrollSpy($('.scrollButton'));
+  let linkScrollButton = $('.scrollButton');
 
+  scrollSpy(linkScrollButton);
 
 
 
 //// fonction scroll event  qui déclenche d'autres foncitons ou anim ////
 
-function onScrollEvent(targetSection, funcToLaunch, verifyVar, number) {
-  $(window).scroll(function() {
 
-    if(($(window).scrollTop() >= targetSection.offset().top - number) && (verifyVar == false)) {
-      setTimeout(funcToLaunch, 500);
-      verifyVar = true;
-      return verifyVar;
-    }
-  });
-}
+
+  function onScrollEvent(targetSection, funcToLaunch, verifyVar, number, optionnel) {
+    $(window).scroll(function() {
+        if(($(window).scrollTop() >= targetSection.offset().top - number) && (verifyVar == false)) {
+          setTimeout(funcToLaunch, 50);
+          verifyVar = true;
+          return verifyVar;
+        }
+    });
+  }
+
+
+
+
+  // let sections = [
+  //   "home",
+  //   "latestWork",
+  //   "skills",
+  //   "aboutMe",
+  //   "contact",
+  //   "footer"
+  // ];
+  //
+  // $(window).scroll(function() {
+  //   for(let i = 0; i < sections.length - 1; ++i)
+  //   {
+  //     let startTargetSection = $("#" + sections[i]);
+  //     let endTargetSection = $("#" + sections[i+1]);
+  //     let linkToActive = $("#" + sections[i] + "Link");
+  //
+  //     if(
+  //       ($(window).scrollTop() >= startTargetSection.offset().top - 350) &&
+  //       ($(window).scrollTop() < endTargetSection.offset().top - 350)
+  //     ) {
+  //       if($('.activeLink')) {
+  //         $('.activeLink').removeClass('activeLink');
+  //       }
+  //       linkToActive.addClass('activeLink');
+  //     }
+  //   }
+  // });
+  //
+  function activeLink(startTargetSection, endTargetSection, linkToActive) {
+    $(window).scroll(function() {
+      if( ($(window).scrollTop() >= startTargetSection.offset().top - 350) &&
+        ($(window).scrollTop() < endTargetSection.offset().top - 350) ) {
+        if($('.activeLink')) {
+          $('.activeLink').removeClass('activeLink');
+        }
+
+        linkToActive.addClass('activeLink');
+
+      }
+    });
+  }
+
+  activeLink(home, latestWork, homeLink);
+  activeLink(latestWork, skills, latestWorkLink);
+  activeLink(skills, aboutMe, skillsLink);
+  activeLink(aboutMe, contact, aboutMeLink);
+  activeLink(contact, footer, contactLink);
+
+  // $('.scrollButton').click(function(e) {
+  //   if($('.activeLink')) {
+  //     $('.activeLink').removeClass('activeLink');
+  //   }
+  //   $(this).addClass('activeLink');
+  // });
+
+
+
+/////// menu qui remonte au scroll /////////////////
+
+// let test = false;
+//
+// function hideHeader() {
+//   $('header').animate({
+//     opacity: 0,
+//     height: "100px"
+//   }, 800);
+// }
+//
+// onScrollEvent($('#latestWork'), hideHeader, test, 600);
+
+////// Apparition des projets /////////////////////
+
+
+
+  let screenAtProjects = false;
+
+
+  function showFigure() {
+    $('#latestWork h1').fadeIn().addClass('animated');
+    figure.fadeIn().addClass('animated');
+    screenAtProjects = true;
+    return screenAtProjects;
+  }
+
+
+  onScrollEvent(latestWork, showFigure, screenAtProjects, 350);
+
+
 
 ////// Animations des progress bar dans la partie Compétences //////
 
-  function multipleProgressBar(elemToAnim,elemWidth) {
-    let width = 1;
-    let value;
-    let id = setInterval(frame, 10);
-    function frame() {
+
+
+  let screenAtSkills = false;
+
+  function multipleProgressBar(elemToAnim,elemWidth, valueSpan) {
+
+  let width = 1;
+  let value;
+  let id = setInterval(frame, 18);
+
+  function frame() {
       if (width == elemWidth) {
-          clearInterval(id);
+        clearInterval(id);
       } else {
-          width++;
-          value =  (width * 3) + 'px';
-          elemToAnim.css("width", value);
-          elemToAnim.text(width + '%');
-          elemToAnim.css(
-            "backgroundColor",
-            "#ed6a5a"
-          );
+        width++;
+        value =  (width * 3) + 'px';
+        elemToAnim.css("width", value);
+        elemToAnim.text(width + '%');
+        elemToAnim.css(
+          "backgroundColor",
+          "#242424");
       }
     }
   }
@@ -209,34 +332,71 @@ function onScrollEvent(targetSection, funcToLaunch, verifyVar, number) {
       }
   }
 
-  let screenAtSkills = false;
+  function showSkills() {
+    $('#skills h1').fadeIn().addClass('animated');
+    $('#skills div').fadeIn().addClass('animated');
+    setTimeout(launchMultipleProgressBar,150);
+  }
 
-// lancement de la fonction launchMultipleProgressBar quand la position de l'écran est bonne
 
-onScrollEvent($('#skills'), launchMultipleProgressBar, screenAtSkills, 350);
+
+  onScrollEvent(skills,showSkills, screenAtSkills, 350);
+
+
+
+///////// Apparition aboutMe //////////////////////////
+
+
+
+  let screenAtAboutMe = false;
+
+  function showAboutMe() {
+    $('#aboutMe h1, #aboutMe div').fadeIn().addClass('animated');
+  }
+
+  onScrollEvent(aboutMe, showAboutMe, screenAtAboutMe, 250);
 
 
 
 ///////// Apparition du formulaire ////////////////////
 
-let screenAtContact = false;
 
 
-function showForm() {
-  $('.formContainer').animate({
-  width: "400px",
-}, 1000, "easeOutBack", function() {
-  $('.form').fadeIn();
-  $('.closeFormContainer').fadeIn().addClass('animated');
-  $('.closeFormContainer').addClass('changeBar');
-  $('.formContainer h3').fadeIn();
-});
+  let screenAtContact = false;
+  let formContainer = $('.formContainer');
+  let contactContainer = $('.contactContainer');
 
-screenAtContact = true;
-return screenAtContact;
-}
+  function showForm() {
+    formContainer.animate({
+    width: "400px"
+    }, 1000, "easeInCubic", function() {
+    $('.form').fadeIn();
+    $('.closeFormContainer').fadeIn();
+    $('.formContainer h3').fadeIn();
+  });
 
-onScrollEvent($('#contact'), showForm, screenAtContact, 350);
-//fermeture de la fonction jquery
+  function showContact() {
+    contactContainer.animate({
+    height: "150px"
+    }, 150, function() {
+      contactContainer.animate({
+        width:"375px"
+      }, 1000,  "easeOutBack", function () {
+        $('.contactContainer p, .contactContainer a').fadeIn();
+        });
+      });
+    }
+
+    setTimeout(showContact, 1050);
+
+    screenAtContact = true;
+    return screenAtContact;
+  }
+
+  onScrollEvent(contact, showForm, screenAtContact, 350);
+
+
+
+  //fermeture de la fonction jquery
 
 });
