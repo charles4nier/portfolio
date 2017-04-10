@@ -268,16 +268,13 @@ $(function () {
 
 /////// menu qui remonte au scroll /////////////////
 
-// let test = false;
+// let menu = false;
 //
-// function hideHeader() {
-//   $('header').animate({
-//     opacity: 0,
-//     height: "100px"
-//   }, 800);
+// function changeMenu() {
+//   $('header').addClass('blackMenu');
 // }
 //
-// onScrollEvent($('#latestWork'), hideHeader, test, 600);
+// onScrollEvent(latestWork, changeMenu, menu, 600);
 
 ////// Apparition des projets /////////////////////
 
@@ -296,7 +293,13 @@ $(function () {
 
   onScrollEvent(latestWork, showFigure, screenAtProjects, 350);
 
+  $('figure').mouseenter(function() {
+    $('#' + $(this).attr('id') + 'FigureInfo').css('display', 'block');
+  });
 
+  $('figure').mouseleave(function() {
+      $('figure .figureInfo').css('display', 'none');
+  });
 
 ////// Animations des progress bar dans la partie Compétences //////
 
