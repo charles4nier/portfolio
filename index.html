@@ -36,6 +36,9 @@
         <h1 class="titleSection fadeInDown">Mes derniers projets</h1>
         <div class="figureContainer">
           <figure id="figure" class="fadeIn">
+            <div class="filterImg">
+
+            </div>
             <a href="https://www.learn-eat.fr/" target="_blank"><img src="links/learnEat.jpg" alt="une main et des avec une assiette de légume" class="img-responsive"></a>
             <p>Learn Eat</p>
           </figure>
@@ -54,7 +57,7 @@
             <p>Ik Music</p>
           </figure>
           <figure id="figure" class="fadeIn">
-            <a href="https://dzov.github.io/act/" target="_blank"><img src="links/act.jpg" alt="des tomates" class="img-responsive"></a>
+            <a href="https://dzov.github.io/Act/" target="_blank"><img src="links/act.jpg" alt="des tomates" class="img-responsive"></a>
             <p>Act!</p>
           </figure>
           <figure id="figure" class="fadeIn">
@@ -92,23 +95,21 @@
         <h1 id="moi" class="fadeInDown">Qui suis-je ?</h1>
         <div class="col-md-6 col-md-offset-1 firstDivAboutMe fadeInLeft">
 
-          <div id="drag1" class="dragMe">
+          <div id="drag1" class="dragMe" >
+          </div>
+          <div id="drag2" class="dragMe" draggable="true">
+          </div>
+          <div id="drag3" class="dragMe" draggable="true">
             <p>?</p>
           </div>
-          <div id="drag2" class="dragMe">
+          <div id="drag4" class="dragMe" draggable="true">
             <p>?</p>
           </div>
-          <div id="drag3" class="dragMe">
-            <p>?</p>
-          </div>
-          <div id="drag4" class="dragMe">
-            <p>?</p>
-          </div>
-          <div id="drag5" class="dragMe">
+          <div id="drag5" class="dragMe" draggable="true">
             <p>?</p>
           </div>
         </div>
-        <div class="col-md-4 lastChildDivAboutMe fadeInRight">
+        <div class="col-md-4 lastChildDivAboutMe fadeInRight"  id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
 
         </div>
       </section>

@@ -23,7 +23,6 @@ $(function () {
     [470, 340],
     [488, 210],
     [476, 190],
-    [302, 140]
   ];
 
   context.beginPath();
@@ -57,6 +56,7 @@ $(function () {
   context.lineTo(318, 80);
   context.lineTo(292, 124);
   context.lineTo(302, 140);
+  context.lineTo(476, 190);
 
   context.stroke();
 
@@ -106,7 +106,7 @@ $(function () {
 
   //sourcil gauche
   context.lineWidth = "3";
-  context.strokeStyle = "#2ac1ad";
+  context.strokeStyle = "#ff5953";
   context.beginPath();
   context.moveTo(368, 225);
   context.lineTo(310, 225);
@@ -181,7 +181,7 @@ $(function () {
     scrollButton.click(function(e) {
       e.preventDefault();
       $('html, body').animate({
-          scrollTop: $(this.hash).offset().top - 102
+          scrollTop: $(this.hash).offset().top - 89
         }, 750, "easeInCubic");
     });
   }
@@ -319,7 +319,7 @@ $(function () {
         elemToAnim.css("width", value);
         elemToAnim.text(width + '%');
         elemToAnim.css(
-          "backgroundColor",
+          "backgroundColor" ,
           "#242424");
       }
     }
@@ -355,6 +355,20 @@ $(function () {
   }
 
   onScrollEvent(aboutMe, showAboutMe, screenAtAboutMe, 250);
+
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
 
 
 

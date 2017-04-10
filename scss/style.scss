@@ -13,11 +13,14 @@
 
 
 $lightGrey: #eeeeee;
-$orange: #ed6a5a;
-$lagoon: #2ac1ad;
+$pink: #ff5953;
+$lagoon: #75ffba;
 $white: white;
-$black: #242424;
+$black: #2d2d2a;
 $darkGrey: #333333;
+$orange : $lagoon;
+
+
 
 * {
   font-family: 'Oswald', sans-serif;
@@ -55,8 +58,11 @@ header {
     text-align: center;
     font-family: "Oswald-Bold";
     color: $black;
+    h1 {
+      font-size: 1.5em;
+    }
     p {
-      color: $orange;
+      color: $pink;
     }
   }
   nav {
@@ -73,7 +79,7 @@ header {
           transition: all 0.2s ease-in-out;
           z-index: 3;
           &:hover {
-            color: $orange;
+            color: $pink;
             text-decoration: none;
           }
           &:focus {
@@ -93,12 +99,12 @@ header {
           }
         }
         .activeLink {
-            color: $orange;
+            color: $pink;
           &:before {
             transform: scale(1);
           }
           &:focus {
-            color: $orange;
+            color: $pink;
           }
         }
       }
@@ -137,8 +143,9 @@ header {
     }
     figure {
       display: none;
+      position: relative;
       width: 300px;
-      color: $white;
+      color: $orange;
       background-color: $black;
       box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.49);
       transition: all 0.2s ease-in-out;
@@ -148,6 +155,15 @@ header {
         background-color: $lagoon;
         color: $black;
         box-shadow: 0px 10px 10px rgba(100, 100, 100, 0.49);
+      }
+      .filterImg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        height: calc(100% - $);
+        background-color: $black;
       }
       p {
         text-align: center;
@@ -171,11 +187,11 @@ header {
       box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
       padding: 35px 0;
       background-color: $white;
-      color: $orange;
+      color: $pink;
       height: 500px;
       &:last-child {
-      background-color: $orange;
-      color: $white;
+      background-color: $lightGrey;
+      // color: $white;
     }
     ul {
       margin-left: 15%;
@@ -183,7 +199,7 @@ header {
       li {
         p {
           margin-top: 7px;
-          color: white;
+          color: $lagoon;
           text-align: center;
         }
       }
@@ -302,13 +318,13 @@ header {
     }
 
     .contactContainer {
-      background-color: $orange;
+      background-color: $pink;
       width: 0;
       height: 0;
       position: absolute;
       left: 260px;
       top: 260px;
-      color: $white;
+      color: $lagoon;
       z-index: 1;
       display: flex;
       flex-direction: column;
@@ -320,7 +336,7 @@ header {
       }
       a {
         display: none;
-        color: white;
+        color: $lagoon;
       }
     }
   }
@@ -361,12 +377,12 @@ header {
 
 @keyframes retour1 {
   0% { transform: rotate(45deg); left: 20px; top: 28px;  background-color: black;}
-  100% { transform: rotate(-180deg);left: 0; top: 0; background-color: #ed6a5a;}
+  100% { transform: rotate(-180deg);left: 0; top: 0; background-color: $pink;}
 }
 
 @keyframes retour2 {
   0% {  transform: rotate(45deg); right: 28px; bottom: 20px; background-color: black;}
-  100% { transform: rotate(360deg); ; right: 0; bottom: 0; background-color: #ed6a5a;}
+  100% { transform: rotate(360deg); ; right: 0; bottom: 0; background-color: $pink;}
 }
 
 @keyframes rotate1 {
