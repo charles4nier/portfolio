@@ -9,6 +9,10 @@
   font-family: "Oswald-Regular";
 }
 
+@font-face {
+  src: url("../fonts/Oswald-Light.ttf");
+  font-family: "Oswald-Light";
+}
 
 
 
@@ -61,6 +65,7 @@ header {
     color: $white;
     h1 {
       font-size: 1.5em;
+      margin-bottom: 7px;
     }
     p {
       color: $pink;
@@ -145,7 +150,7 @@ header {
     figure {
       display: none;
       position: relative;
-      width: 300px;
+      width: 330px;
       color: $white;
       background-color: $black;
       box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.49);
@@ -161,17 +166,30 @@ header {
       .figureInfo {
         position: absolute;
         z-index: 2;
+        background-color: rgba(45,45,42, 0.965);
+        display: none;
         width: 100%;
         height: 100%;
-        background-color: $black;
-        display: none;
-        h3 {
-          color: $pink;
+        padding: 0 3px;
+        cursor: pointer;
+        h2 {
           text-align: center;
-          margin: 35px 0 40px 0;
+          margin: 35px 0 20px 0;
+          color: $pink;
+          font-size: 1.2em;
         }
-        li {
-          margin-top: 7px;
+        ul {
+          li {
+            margin-top: 4px;
+            margin-right: 7%;
+            font-size: 0.96em;
+            font-family: "Oswald-Regular";
+            letter-spacing: 1px;
+            span {
+              font-size: 0.96em;
+              color: $lagoon;
+            }
+          }
         }
       }
       p {
@@ -181,6 +199,7 @@ header {
     }
   }
 }
+
 
 #skills {
   height: 630px;
@@ -208,7 +227,7 @@ header {
       li {
         p {
           margin-top: 7px;
-          color: $lagoon;
+          color: $white;
           text-align: center;
         }
       }
@@ -319,7 +338,7 @@ header {
         .submit {
           background-color: $black;
           border: none;
-          color: $pink;
+          color: $white;
           height: 40px;
           width: 100px;
         }
@@ -350,6 +369,27 @@ header {
     }
   }
 }
+
+
+
+// animation des figureInfo
+
+// .activeFigureInfoTop {
+//   display: block;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   animation-name: slideInTop;
+//   animation-duration: 0.4s;
+//   animation-timing-function: ease-in-out;
+//   animation-fill-mode: both;
+// }
+//
+// @keyframes slideInTop {
+//   0% {height: 0;}
+//   100% { height: 100%;}
+// }
+
 
 //animation des bars de la fermeture du formulaire
 

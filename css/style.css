@@ -4,6 +4,9 @@
 @font-face {
   src: url("../fonts/Oswald-Regular.ttf");
   font-family: "Oswald-Regular"; }
+@font-face {
+  src: url("../fonts/Oswald-Light.ttf");
+  font-family: "Oswald-Light"; }
 * {
   font-family: 'Oswald', sans-serif;
   font-size: 16px; }
@@ -37,7 +40,8 @@ header {
     font-family: "Oswald-Bold";
     color: white; }
     header div h1 {
-      font-size: 1.5em; }
+      font-size: 1.5em;
+      margin-bottom: 7px; }
     header div p {
       color: #ff5953; }
   header nav ul {
@@ -101,7 +105,7 @@ header {
     #latestWork .figureContainer figure {
       display: none;
       position: relative;
-      width: 300px;
+      width: 330px;
       color: white;
       background-color: #2d2d2a;
       box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.49);
@@ -110,16 +114,26 @@ header {
       #latestWork .figureContainer figure .figureInfo {
         position: absolute;
         z-index: 2;
+        background-color: rgba(45, 45, 42, 0.965);
+        display: none;
         width: 100%;
         height: 100%;
-        background-color: #2d2d2a;
-        display: none; }
-        #latestWork .figureContainer figure .figureInfo h3 {
-          color: #ff5953;
+        padding: 0 3px;
+        cursor: pointer; }
+        #latestWork .figureContainer figure .figureInfo h2 {
           text-align: center;
-          margin: 35px 0 40px 0; }
-        #latestWork .figureContainer figure .figureInfo li {
-          margin-top: 7px; }
+          margin: 35px 0 20px 0;
+          color: #ff5953;
+          font-size: 1.2em; }
+        #latestWork .figureContainer figure .figureInfo ul li {
+          margin-top: 4px;
+          margin-right: 7%;
+          font-size: 0.96em;
+          font-family: "Oswald-Regular";
+          letter-spacing: 1px; }
+          #latestWork .figureContainer figure .figureInfo ul li span {
+            font-size: 0.96em;
+            color: #75ffba; }
       #latestWork .figureContainer figure p {
         text-align: center;
         padding: 10px 10px 0 10px; }
@@ -146,7 +160,7 @@ header {
       margin-top: 20px; }
       #skills div ul li p {
         margin-top: 7px;
-        color: #75ffba;
+        color: white;
         text-align: center; }
 
 #aboutMe {
@@ -233,7 +247,7 @@ header {
         #contact .blackContainer .formContainer .form .submit {
           background-color: #2d2d2a;
           border: none;
-          color: #ff5953;
+          color: white;
           height: 40px;
           width: 100px; }
     #contact .blackContainer .contactContainer {

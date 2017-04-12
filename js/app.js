@@ -106,7 +106,7 @@ $(function () {
 
   //sourcil gauche
   context.lineWidth = "3";
-  context.strokeStyle = "#ff5953";
+  context.strokeStyle = "#242424";
   context.beginPath();
   context.moveTo(368, 225);
   context.lineTo(310, 225);
@@ -177,24 +177,18 @@ $(function () {
 
 
 
-  function scrollSpy(scrollButton) {
-    scrollButton.click(function(e) {
-      e.preventDefault();
-      $('html, body').animate({
-          scrollTop: $(this.hash).offset().top - 89
-        }, 750, "easeInCubic");
-    });
-  }
-
   let linkScrollButton = $('.scrollButton');
 
-  scrollSpy(linkScrollButton);
+  linkScrollButton.click(function(e) {
+    e.preventDefault();
+    $('html, body').animate({
+        scrollTop: $(this.hash).offset().top - 89
+      }, 750, "easeInCubic");
+  });
 
 
 
 //// fonction scroll event  qui déclenche d'autres foncitons ou anim ////
-
-
 
   function onScrollEvent(targetSection, funcToLaunch, verifyVar, number, optionnel) {
     $(window).scroll(function() {
@@ -293,13 +287,110 @@ $(function () {
 
   onScrollEvent(latestWork, showFigure, screenAtProjects, 350);
 
+
+  //////////// création des comportements qui permettent d'avoir des infos ques sur les sites créés //////////
+
+
+  let linkToProjects = ["https://www.learn-eat.fr/", "http://www.ikmusic.org/", "http://fablab.simplon.co/", "#", "https://dzov.github.io/Act/", "https://charles4nier.github.io/royco/"];
+
   $('figure').mouseenter(function() {
-    $('#' + $(this).attr('id') + 'FigureInfo').css('display', 'block');
+     $('#' + $(this).attr('id') + 'FigureInfo').slideDown(450, 'easeInCubic', function() {
+     });
+     $(this).click(function() {
+       let i = 0;
+       for(; i < linkToProjects.length; i++) {
+         let number = i + 1;
+         let idComparator = number.toString()
+         if(idComparator == $(this).attr('id')) {
+             window.open(linkToProjects[i], true);
+         }
+       }
+     });
   });
 
   $('figure').mouseleave(function() {
-      $('figure .figureInfo').css('display', 'none');
+    $('#' + $(this).attr('id') + 'FigureInfo').slideUp(225, function() {
+     });
   });
+
+
+
+  // let previousX = 0;
+  // let vectorX = 0;
+  // let xComparator = 0;
+  //
+  // let previousY = 0;
+  // let vectorY = 0;
+  // let yComparator = 0;
+  //
+  // $(document).mousemove(function(e) {
+  //   let x = e.clientX;
+  //   let y = e.clientY;
+  //
+  //   vectorX = x - previousX;
+  //   previousX = x;
+  //   // permet de rendre positif un nombre négatif //
+  //   xComparator = (vectorX * vectorX);
+  //
+  //   vectorY = y - previousY;
+  //   previousY = y;
+  //   // permet de rendre positif un nombre négatif //
+  //   yComparator = (vectorY * vectorY);
+  //
+    // $('figure').mouseenter(function() {
+  //     if(yComparator > xComparator) {
+  //       if(vectorY > 0) {
+  //         $('#' + $(this).attr('id') + 'FigureInfo').css({
+  //           'display' : 'block',
+  //           'width' : '100%'
+  //         });
+  //         $('#' + $(this).attr('id') + 'FigureInfo').animate({
+  //           'height': "100%"
+  //         }, 450);
+  //
+  //       } else {
+  //         $('#' + $(this).attr('id') + 'FigureInfo').css({
+  //           'display' : 'block',
+  //           'width' : '100%',
+  //           'bottom' : '0'
+  //         });
+  //         $('#' + $(this).attr('id') + 'FigureInfo').animate({
+  //           'height': "100%",
+  //           'top': '0'
+  //         }, 450);
+  //       }
+  //     } else {
+  //       if(vectorX > 0) {
+  //         $('#' + $(this).attr('id') + 'FigureInfo').css({
+  //           'display' : 'block',
+  //           'height' : '100%'
+  //         });
+  //         $('#' + $(this).attr('id') + 'FigureInfo').animate({
+  //           'width': "100%"
+  //         }, 450);
+  //       } else {
+  //         $('#' + $(this).attr('id') + 'FigureInfo').css({
+  //           'display' : 'block',
+  //           'height' : '100%',
+  //           'right' : '0'});
+  //         $('#' + $(this).attr('id') + 'FigureInfo').animate({
+  //           'width': "100%",
+  //           'left': '0'
+  //         }, 450);
+  //       }
+  //     }
+  //   });
+  //
+  //   $('figure').mouseleave(function() {
+  //     $('#1FigureInfo').css({'backgroundColor':'red',
+  //     'height' : '15px'
+  //     });
+  //   });
+  //
+  // });
+
+
+
 
 ////// Animations des progress bar dans la partie Compétences //////
 

@@ -1,3 +1,3 @@
-# Commit 5
+# Commit 6
 
-La version 5 règle les problèmes de scroll. Il y a maintenant des points de repères sur la nav pour savoir dans quelle section nous sommes. Le code a été amélioré pour que le site ai moins de minis lags.
+La page projets est maintenant terminée. Des indications apparaissent aus urvol des figures. Pour y parvenir, j'utilise une div positionnée en absolute qui vient recouvrir en entier (width et height 100%) son parent. Il est possible de cliquer cette nouvelle div pour ouvrir les projets.
