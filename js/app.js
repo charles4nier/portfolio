@@ -5,9 +5,9 @@ $(function () {
   ////////////////////// le dessin du visage //////////////////////////
 
 
-  let canvas  = document.querySelector('#canvas');
+  let canvas  = document.querySelector("#canvas");
 
-  let context = canvas.getContext('2d');
+  let context = canvas.getContext("2d");
 
   //forme visage
   context.lineWidth = "3";
@@ -26,7 +26,7 @@ $(function () {
   ];
 
   context.beginPath();
-  context.moveTo(points[0][0], points[0][1]);  // 1er point (sens contraire des aiguilles d'une montre)
+  context.moveTo(points[0][0], points[0][1]);  // 1er point (sens contraire des aiguilles d"une montre)
   for(let i = 1; i < points.length; ++i)
   {
     context.lineTo(points[i][0], points[i][1]);
@@ -74,7 +74,7 @@ $(function () {
 
   // oreille gauche
   context.lineWidth = "3";
-  context.strokeStyle = '#242424';
+  context.strokeStyle = "#242424";
   context.beginPath();
   context.moveTo(282, 230);
   context.lineTo(251, 229);
@@ -149,37 +149,41 @@ $(function () {
 
 ///////////////////////// Les animations sur le restes du site ////////////
 
-  let figure = $('figure');
+  let figure = $("figure");
 
       // Section variable //
 
-  let home = $('#home');
-  let latestWork = $('#latestWork');
-  let skills = $('#skills');
-  let aboutMe = $('#aboutMe');
-  let contact = $('#contact');
-  let footer = $('#footer');
+  let home = $("#home");
+  let latestWork = $("#latestWork");
+  let skills = $("#skills");
+  let aboutMe = $("#aboutMe");
+  let contact = $("#contact");
+  let footer = $("#footer");
 
       // Link variable
 
-  let homeLink = $('#homeLink');
-  let latestWorkLink = $('#latestWorkLink');
-  let skillsLink = $('#skillsLink');
-  let aboutMeLink = $('#aboutMeLink');
-  let contactLink = $('#contactLink');
+  let homeLink = $("#homeLink");
+  let latestWorkLink = $("#latestWorkLink");
+  let skillsLink = $("#skillsLink");
+  let aboutMeLink = $("#aboutMeLink");
+  let contactLink = $("#contactLink");
 
-  //Smooth scroll //
+      //Smooth scroll //
 
-  let linkScrollButton = $('.scrollButton');
+  let linkScrollButton = $(".scrollButton");
 
   linkScrollButton.click(function(e) {
     e.preventDefault();
-    $('html, body').animate({
+    $("html, body").animate(
+      {
         scrollTop: $(this.hash).offset().top - 80
-      }, 750, "easeInCubic");
+      },
+      750,
+      "easeInCubic"
+    );
   });
 
-//// fonction scroll event  qui déclenche d'autres foncitons ou anim ////
+//// fonction scroll event  qui déclenche d"autres foncitons ou anim ////
 
   function onScrollEvent(targetSection, funcToLaunch, verifyVar, number, optionnel) {
     $(window).scroll(function() {
@@ -191,43 +195,15 @@ $(function () {
     });
   }
 
-  // let sections = [
-  //   "home",
-  //   "latestWork",
-  //   "skills",
-  //   "aboutMe",
-  //   "contact",
-  //   "footer"
-  // ];
-  //
-  // $(window).scroll(function() {
-  //   for(let i = 0; i < sections.length - 1; ++i)
-  //   {
-  //     let startTargetSection = $("#" + sections[i]);
-  //     let endTargetSection = $("#" + sections[i+1]);
-  //     let linkToActive = $("#" + sections[i] + "Link");
-  //
-  //     if(
-  //       ($(window).scrollTop() >= startTargetSection.offset().top - 350) &&
-  //       ($(window).scrollTop() < endTargetSection.offset().top - 350)
-  //     ) {
-  //       if($('.activeLink')) {
-  //         $('.activeLink').removeClass('activeLink');
-  //       }
-  //       linkToActive.addClass('activeLink');
-  //     }
-  //   }
-  // });
-  //
   function activeLink(startTargetSection, endTargetSection, linkToActive) {
     $(window).scroll(function() {
       if( ($(window).scrollTop() >= startTargetSection.offset().top - 350) &&
         ($(window).scrollTop() < endTargetSection.offset().top - 350) ) {
-        if($('.activeLink')) {
-          $('.activeLink').removeClass('activeLink');
+        if($(".activeLink")) {
+          $(".activeLink").removeClass("activeLink");
         }
 
-        linkToActive.addClass('activeLink');
+        linkToActive.addClass("activeLink");
 
       }
     });
@@ -239,31 +215,14 @@ $(function () {
   activeLink(aboutMe, contact, aboutMeLink);
   activeLink(contact, footer, contactLink);
 
-  // $('.scrollButton').click(function(e) {
-  //   if($('.activeLink')) {
-  //     $('.activeLink').removeClass('activeLink');
-  //   }
-  //   $(this).addClass('activeLink');
-  // });
-
-/////// menu qui remonte au scroll /////////////////
-
-// let menu = false;
-//
-// function changeMenu() {
-//   $('header').addClass('blackMenu');
-// }
-//
-// onScrollEvent(latestWork, changeMenu, menu, 600);
-
 ////// Apparition des projets /////////////////////
 
   let screenAtProjects = false;
 
 
   function showFigure() {
-    $('#latestWork h1').fadeIn().addClass('animated');
-    figure.fadeIn().addClass('animated');
+    $("#latestWork h1").fadeIn().addClass("animated");
+    figure.fadeIn().addClass("animated");
     screenAtProjects = true;
     return screenAtProjects;
   }
@@ -271,7 +230,7 @@ $(function () {
 
   onScrollEvent(latestWork, showFigure, screenAtProjects, 350);
 
-  //////////// création des comportements qui permettent d'avoir des infos ques sur les sites créés //////////
+  //////////// création des comportements qui permettent d"avoir des infos ques sur les sites créés //////////
 
   let linkToProjects = [
     "https://www.learn-eat.fr/",
@@ -282,9 +241,9 @@ $(function () {
     "https://charles4nier.github.io/royco/"
   ];
 
-  $('figure').mouseenter(function() {
-     $('#' + $(this).attr('id') + 'FigureInfo').slideDown(350,
-     'easeInCubic',
+  $("figure").mouseenter(function() {
+     $("#" + $(this).attr("id") + "FigureInfo").slideDown(350,
+     "easeInCubic",
      function() {
      });
 
@@ -293,15 +252,15 @@ $(function () {
        for(; i < linkToProjects.length; i++) {
          let number = i + 1;
          let idComparator = number.toString()
-         if(idComparator == $(this).attr('id')) {
+         if(idComparator == $(this).attr("id")) {
              window.open(linkToProjects[i], true);
          }
        }
      });
   });
 
-  $('figure').mouseleave(function() {
-    $('#' + $(this).attr('id') + 'FigureInfo').slideUp(225,
+  $("figure").mouseleave(function() {
+    $("#" + $(this).attr("id") + "FigureInfo").slideUp(225,
     function() {
     });
   });
@@ -328,53 +287,53 @@ $(function () {
   //   // permet de rendre positif un nombre négatif //
   //   yComparator = (vectorY * vectorY);
   //
-    // $('figure').mouseenter(function() {
+    // $("figure").mouseenter(function() {
   //     if(yComparator > xComparator) {
   //       if(vectorY > 0) {
-  //         $('#' + $(this).attr('id') + 'FigureInfo').css({
-  //           'display' : 'block',
-  //           'width' : '100%'
+  //         $("#" + $(this).attr("id") + "FigureInfo").css({
+  //           "display" : "block",
+  //           "width" : "100%"
   //         });
-  //         $('#' + $(this).attr('id') + 'FigureInfo').animate({
-  //           'height': "100%"
+  //         $("#" + $(this).attr("id") + "FigureInfo").animate({
+  //           "height": "100%"
   //         }, 450);
   //
   //       } else {
-  //         $('#' + $(this).attr('id') + 'FigureInfo').css({
-  //           'display' : 'block',
-  //           'width' : '100%',
-  //           'bottom' : '0'
+  //         $("#" + $(this).attr("id") + "FigureInfo").css({
+  //           "display" : "block",
+  //           "width" : "100%",
+  //           "bottom" : "0"
   //         });
-  //         $('#' + $(this).attr('id') + 'FigureInfo').animate({
-  //           'height': "100%",
-  //           'top': '0'
+  //         $("#" + $(this).attr("id") + "FigureInfo").animate({
+  //           "height": "100%",
+  //           "top": "0"
   //         }, 450);
   //       }
   //     } else {
   //       if(vectorX > 0) {
-  //         $('#' + $(this).attr('id') + 'FigureInfo').css({
-  //           'display' : 'block',
-  //           'height' : '100%'
+  //         $("#" + $(this).attr("id") + "FigureInfo").css({
+  //           "display" : "block",
+  //           "height" : "100%"
   //         });
-  //         $('#' + $(this).attr('id') + 'FigureInfo').animate({
-  //           'width': "100%"
+  //         $("#" + $(this).attr("id") + "FigureInfo").animate({
+  //           "width": "100%"
   //         }, 450);
   //       } else {
-  //         $('#' + $(this).attr('id') + 'FigureInfo').css({
-  //           'display' : 'block',
-  //           'height' : '100%',
-  //           'right' : '0'});
-  //         $('#' + $(this).attr('id') + 'FigureInfo').animate({
-  //           'width': "100%",
-  //           'left': '0'
+  //         $("#" + $(this).attr("id") + "FigureInfo").css({
+  //           "display" : "block",
+  //           "height" : "100%",
+  //           "right" : "0"});
+  //         $("#" + $(this).attr("id") + "FigureInfo").animate({
+  //           "width": "100%",
+  //           "left": "0"
   //         }, 450);
   //       }
   //     }
   //   });
   //
-  //   $('figure').mouseleave(function() {
-  //     $('#1FigureInfo').css({'backgroundColor':'red',
-  //     'height' : '15px'
+  //   $("figure").mouseleave(function() {
+  //     $("#1FigureInfo").css({"backgroundColor":"red",
+  //     "height" : "15px"
   //     });
   //   });
   //
@@ -395,9 +354,9 @@ $(function () {
         clearInterval(id);
       } else {
         width++;
-        value =  (width * 3) + 'px';
+        value =  (width * 3) + "px";
         elemToAnim.css("width", value);
-        elemToAnim.text(width + '%');
+        elemToAnim.text(width + "%");
         elemToAnim.css(
           "backgroundColor" ,
           "#242424");
@@ -413,8 +372,8 @@ $(function () {
   }
 
   function showSkills() {
-    $('#skills h1').fadeIn().addClass('animated');
-    $('#skills div').fadeIn().addClass('animated');
+    $("#skills h1").fadeIn().addClass("animated");
+    $("#skills div").fadeIn().addClass("animated");
     setTimeout(launchMultipleProgressBar,150);
   }
 
@@ -425,91 +384,96 @@ $(function () {
   let screenAtAboutMe = false;
 
   let dragMe = [
-    $('#drag1'),
-    $('#drag2'),
-    $('#drag3'),
-    $('#drag4'),
-    $('#drag5')
+    $("#drag1"),
+    $("#drag2"),
+    $("#drag3"),
+    $("#drag4"),
+    $("#drag5"),
+    $("#drag6"),
+    $("#drag7"),
+    $("#drag8"),
+    $("#drag9"),
+    $("#drag10")
   ];
 
   let eases = [
     "easeInOutExpo",
-    "easeOutCirc",
-    "easeInQuint",
     "easeInOutSine",
-    "easeInBack"
   ];
 
+  let interval = 1200;
+
   function showDraggableDiv() {
-    for (let i = 0; i < dragMe.length; i++) {
-      let x = Math.floor(Math.random() * 500) + "px";
-      let y = Math.floor(Math.random() * 450) + "px";
-      dragMe[i].css({
-        'top' : y,
-        'left' : x
-      });
+    for (let i in dragMe) {
+      dragMe[i].css(
+        {
+          "top" : Math.floor(Math.random() * 450) + "px",
+          "left" : Math.floor(Math.random() * 500) + "px"
+        }
+      );
 
-      dragMe[i].fadeIn().addClass('animated');
+      dragMe[i].fadeIn().addClass("animated");
     }
   }
 
-  function moveDaggableDiv() {
-    for (let i = 0; i < dragMe.length; i++) {
-      dragMe[i].animate({
-        top : Math.floor(Math.random() * 450),
-        left: Math.floor(Math.random() * 500)
-      }, Math.floor((Math.random() + 1) * 1000), eases[Math.floor(Math.random() * 4)]);
+  function moveDraggableDiv() {
+    for (let i in dragMe) {
+      dragMe[i].animate(
+        {
+          "top" : Math.floor(Math.random() * 450),
+          "left" : Math.floor(Math.random() * 500)
+        },
+        Math.floor((Math.random() + 1) * interval),
+        eases[Math.floor(Math.random() * eases.length)]
+      );
     }
-
-    setInterval(moveDaggableDiv, 2000);
   }
+
+  setInterval(moveDraggableDiv, interval);
 
   function showAboutMe() {
-    $('#aboutMe h1, #aboutMe .dragZone').fadeIn().addClass('animated');
+    $("#aboutMe h1, #aboutMe .dragZone").fadeIn().addClass("animated");
     setTimeout(showDraggableDiv, 650);
-    setTimeout(moveDaggableDiv, 1500);
+    setTimeout(moveDraggableDiv, 800);
   }
 
   onScrollEvent(aboutMe, showAboutMe, screenAtAboutMe, 250);
 
-  function allowDrop(ev) {
-    ev.preventDefault();
-  }
-
-  function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-  }
-
-  function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-  }
 
 ///////// Apparition du formulaire ////////////////////
 
   let screenAtContact = false;
-  let formContainer = $('.formContainer');
-  let contactContainer = $('.contactContainer');
+  let formContainer = $(".formContainer");
+  let contactContainer = $(".contactContainer");
 
   function showForm() {
-    formContainer.animate({
-    width: "400px"
-    }, 1000, "easeInCubic", function() {
-    $('.form').fadeIn();
-    $('.closeFormContainer').fadeIn();
-    $('.formContainer h3').fadeIn();
-  });
+    formContainer.animate(
+      {
+        width: "400px"
+      },
+      1000,
+      "easeInCubic",
+      function() {
+        $(".form").fadeIn();
+        $(".closeFormContainer").fadeIn();
+        $(".formContainer h3").fadeIn();
+      });
 
-  function showContact() {
-    contactContainer.animate({
-    height: "150px"
-    }, 150, function() {
-      contactContainer.animate({
-        width:"375px"
-      }, 1000,  "easeOutBack", function () {
-        $('.contactContainer p, .contactContainer a').fadeIn();
-        });
+    function showContact() {
+      contactContainer.animate(
+      {
+        "height": "150px"
+      },
+      150,
+      function() {
+        contactContainer.animate(
+        {
+          "width":"375px"
+        },
+        1000,
+        "easeOutBack", function () {
+          $(".contactContainer p, .contactContainer a").fadeIn();
+          });
       });
     }
 

@@ -178,28 +178,62 @@ header {
     height: 500px;
     background-color: #eeeeee;
     margin-right: 15px;
-    transition: all 1s ease-in-out;
     box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49); }
     #aboutMe div .dragMe {
       position: absolute;
       width: 50px;
       height: 50px; }
     #aboutMe div #drag1 {
-      background-color: rgba(245, 74, 55, 0.78); }
+      background-color: rgba(245, 74, 55, 0.67); }
     #aboutMe div #drag2 {
-      background-color: rgba(245, 74, 55, 0.9); }
+      background-color: rgba(245, 74, 55, 0.4); }
     #aboutMe div #drag3 {
       background-color: rgba(245, 74, 55, 0.6); }
     #aboutMe div #drag4 {
       background-color: rgba(245, 74, 55, 0.5); }
     #aboutMe div #drag5 {
       background-color: rgba(245, 74, 55, 0.75); }
+    #aboutMe div #drag6 {
+      background-color: rgba(117, 255, 186, 0.67); }
+    #aboutMe div #drag7 {
+      background-color: rgba(117, 255, 186, 0.4); }
+    #aboutMe div #drag8 {
+      background-color: rgba(117, 255, 186, 0.6); }
+    #aboutMe div #drag9 {
+      background-color: rgba(117, 255, 186, 0.5); }
+    #aboutMe div #drag10 {
+      background-color: rgba(117, 255, 186, 0.75); }
   #aboutMe .firstDivAboutMe {
     position: relative;
     width: 550px; }
   #aboutMe .lastChildDivAboutMe {
-    background-color: white; }
+    background-color: white;
+    text-align: center;
+    padding: 15px 45px; }
+    #aboutMe .lastChildDivAboutMe .dragZoneSquare {
+      margin: 35px auto 40px auto;
+      display: block;
+      height: 60px;
+      width: 60px;
+      border: 2px double #2d2d2a;
+      box-shadow: none;
+      background-color: rgba(255, 88, 82, 0.8);
+      animation: largerSquare 3s infinite; }
+    #aboutMe .lastChildDivAboutMe .aboutMeRules {
+      animation: rules 6s infinite;
+      opacity: 0; }
+      #aboutMe .lastChildDivAboutMe .aboutMeRules span {
+        color: #ff5953; }
 
+@keyframes rules {
+  0% {
+    opacity: 0; }
+  30% {
+    opacity: 1; }
+  80% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 #contact {
   background-color: white;
   height: 600px;

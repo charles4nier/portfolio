@@ -220,7 +220,6 @@ header {
       height: 500px;
       &:last-child {
       background-color: $lightGrey;
-      // color: $white;
     }
     ul {
       margin-left: 25%;
@@ -256,13 +255,12 @@ header {
       position: absolute;
       width: 50px;
       height: 50px;
-      transition: all 1s ease-in-out;
     }
     #drag1 {
-      background-color: rgba(245,74,55, 0.78);
+      background-color: rgba(245,74,55, 0.67);
     }
     #drag2 {
-      background-color: rgba(245,74,55, 0.90);
+      background-color: rgba(245,74,55, 0.40);
     }
     #drag3 {
       background-color: rgba(245,74,55, 0.60);
@@ -273,6 +271,21 @@ header {
     #drag5 {
       background-color: rgba(245,74,55, 0.75);
     }
+    #drag6 {
+      background-color: rgba(117,255,186, 0.67);
+    }
+    #drag7 {
+      background-color: rgba(117,255,186, 0.40);
+    }
+    #drag8 {
+      background-color: rgba(117,255,186, 0.60);
+    }
+    #drag9 {
+      background-color: rgba(117,255,186, 0.5);
+    }
+    #drag10 {
+      background-color: rgba(117,255,186, 0.75);
+    }
   }
   .firstDivAboutMe {
     position: relative;
@@ -280,7 +293,42 @@ header {
   }
   .lastChildDivAboutMe {
     background-color: $white;
+    text-align: center;
+    padding: 15px 45px;
+    .dragZoneSquare {
+      margin: 35px auto 40px auto;
+      display: block;
+      height : 60px;
+      width: 60px;
+      border: 2px double $black;
+      box-shadow: none;
+      background-color: rgba(255, 88, 82, 0.80);
+      animation: largerSquare 3s infinite;
+    }
+    .aboutMeRules {
+      animation: rules 6s infinite;
+      opacity: 0;
+      span {
+        color: $pink;
+      }
+    }
   }
+}
+
+
+@keyframes rules {
+  0% {
+      opacity: 0;
+    }
+  30% {
+      opacity: 1;
+    }
+  80% {
+      opacity: 1;
+    }
+  100% {
+      opacity: 0;
+    }
 }
 
 
