@@ -149,10 +149,7 @@ $(function () {
 
 ///////////////////////// Les animations sur le restes du site ////////////
 
-
-
   let figure = $('figure');
-
 
       // Section variable //
 
@@ -171,22 +168,16 @@ $(function () {
   let aboutMeLink = $('#aboutMeLink');
   let contactLink = $('#contactLink');
 
-
-
   //Smooth scroll //
-
-
 
   let linkScrollButton = $('.scrollButton');
 
   linkScrollButton.click(function(e) {
     e.preventDefault();
     $('html, body').animate({
-        scrollTop: $(this.hash).offset().top - 89
+        scrollTop: $(this.hash).offset().top - 80
       }, 750, "easeInCubic");
   });
-
-
 
 //// fonction scroll event  qui déclenche d'autres foncitons ou anim ////
 
@@ -199,9 +190,6 @@ $(function () {
         }
     });
   }
-
-
-
 
   // let sections = [
   //   "home",
@@ -258,8 +246,6 @@ $(function () {
   //   $(this).addClass('activeLink');
   // });
 
-
-
 /////// menu qui remonte au scroll /////////////////
 
 // let menu = false;
@@ -271,8 +257,6 @@ $(function () {
 // onScrollEvent(latestWork, changeMenu, menu, 600);
 
 ////// Apparition des projets /////////////////////
-
-
 
   let screenAtProjects = false;
 
@@ -287,15 +271,23 @@ $(function () {
 
   onScrollEvent(latestWork, showFigure, screenAtProjects, 350);
 
-
   //////////// création des comportements qui permettent d'avoir des infos ques sur les sites créés //////////
 
-
-  let linkToProjects = ["https://www.learn-eat.fr/", "http://www.ikmusic.org/", "http://fablab.simplon.co/", "#", "https://dzov.github.io/Act/", "https://charles4nier.github.io/royco/"];
+  let linkToProjects = [
+    "https://www.learn-eat.fr/",
+    "http://www.ikmusic.org/",
+    "http://fablab.simplon.co/",
+    "#",
+    "https://dzov.github.io/Act/",
+    "https://charles4nier.github.io/royco/"
+  ];
 
   $('figure').mouseenter(function() {
-     $('#' + $(this).attr('id') + 'FigureInfo').slideDown(450, 'easeInCubic', function() {
+     $('#' + $(this).attr('id') + 'FigureInfo').slideDown(350,
+     'easeInCubic',
+     function() {
      });
+
      $(this).click(function() {
        let i = 0;
        for(; i < linkToProjects.length; i++) {
@@ -309,11 +301,10 @@ $(function () {
   });
 
   $('figure').mouseleave(function() {
-    $('#' + $(this).attr('id') + 'FigureInfo').slideUp(225, function() {
-     });
+    $('#' + $(this).attr('id') + 'FigureInfo').slideUp(225,
+    function() {
+    });
   });
-
-
 
   // let previousX = 0;
   // let vectorX = 0;
@@ -389,12 +380,7 @@ $(function () {
   //
   // });
 
-
-
-
 ////// Animations des progress bar dans la partie Compétences //////
-
-
 
   let screenAtSkills = false;
 
@@ -432,20 +418,56 @@ $(function () {
     setTimeout(launchMultipleProgressBar,150);
   }
 
-
-
   onScrollEvent(skills,showSkills, screenAtSkills, 350);
-
-
 
 ///////// Apparition aboutMe //////////////////////////
 
-
-
   let screenAtAboutMe = false;
 
+  let dragMe = [
+    $('#drag1'),
+    $('#drag2'),
+    $('#drag3'),
+    $('#drag4'),
+    $('#drag5')
+  ];
+
+  let eases = [
+    "easeInOutExpo",
+    "easeOutCirc",
+    "easeInQuint",
+    "easeInOutSine",
+    "easeInBack"
+  ];
+
+  function showDraggableDiv() {
+    for (let i = 0; i < dragMe.length; i++) {
+      let x = Math.floor(Math.random() * 500) + "px";
+      let y = Math.floor(Math.random() * 450) + "px";
+      dragMe[i].css({
+        'top' : y,
+        'left' : x
+      });
+
+      dragMe[i].fadeIn().addClass('animated');
+    }
+  }
+
+  function moveDaggableDiv() {
+    for (let i = 0; i < dragMe.length; i++) {
+      dragMe[i].animate({
+        top : Math.floor(Math.random() * 450),
+        left: Math.floor(Math.random() * 500)
+      }, Math.floor((Math.random() + 1) * 1000), eases[Math.floor(Math.random() * 4)]);
+    }
+
+    setInterval(moveDaggableDiv, 2000);
+  }
+
   function showAboutMe() {
-    $('#aboutMe h1, #aboutMe div').fadeIn().addClass('animated');
+    $('#aboutMe h1, #aboutMe .dragZone').fadeIn().addClass('animated');
+    setTimeout(showDraggableDiv, 650);
+    setTimeout(moveDaggableDiv, 1500);
   }
 
   onScrollEvent(aboutMe, showAboutMe, screenAtAboutMe, 250);
@@ -464,11 +486,7 @@ $(function () {
     ev.target.appendChild(document.getElementById(data));
   }
 
-
-
 ///////// Apparition du formulaire ////////////////////
-
-
 
   let screenAtContact = false;
   let formContainer = $('.formContainer');
@@ -502,8 +520,6 @@ $(function () {
   }
 
   onScrollEvent(contact, showForm, screenAtContact, 350);
-
-
 
   //fermeture de la fonction jquery
 

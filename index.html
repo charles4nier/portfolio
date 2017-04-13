@@ -132,23 +132,24 @@
 
       <section id="aboutMe" class="row">
         <h1 id="moi" class="fadeInDown">Qui suis-je ?</h1>
-        <div class="col-md-6 col-md-offset-1 firstDivAboutMe fadeInLeft">
 
-          <div id="drag1" class="dragMe" >
+        <div class="col-md-6 col-md-offset-1 firstDivAboutMe fadeInLeft dragZone">
+          <div id="drag1" class="dragMe zoomIn" draggable="true">
           </div>
-          <div id="drag2" class="dragMe" draggable="true">
+          <div id="drag2" class="dragMe zoomIn" draggable="true">
           </div>
-          <div id="drag3" class="dragMe" draggable="true">
+          <div id="drag3" class="dragMe zoomIn" draggable="true">
             <p>?</p>
           </div>
-          <div id="drag4" class="dragMe" draggable="true">
+          <div id="drag4" class="dragMe zoomIn" draggable="true">
             <p>?</p>
           </div>
-          <div id="drag5" class="dragMe" draggable="true">
+          <div id="drag5" class="dragMe zoomIn" draggable="true">
             <p>?</p>
           </div>
         </div>
-        <div class="col-md-4 lastChildDivAboutMe fadeInRight"  id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+        <div class="col-md-4 lastChildDivAboutMe fadeInRight dragZone"  id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
 
         </div>
       </section>
