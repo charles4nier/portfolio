@@ -1,29 +1,58 @@
 @font-face {
-  src: url("../fonts/Oswald-Bold.ttf");
-  font-family: "Oswald-Bold"; }
-@font-face {
   src: url("../fonts/Oswald-Regular.ttf");
-  font-family: "Oswald-Regular"; }
+  font-family: "Oswald";
+  font-weight: normal; }
+@font-face {
+  src: url("../fonts/Oswald-Bold.ttf");
+  font-family: "Oswald";
+  font-weight: bold; }
 @font-face {
   src: url("../fonts/Oswald-Light.ttf");
-  font-family: "Oswald-Light"; }
-* {
-  font-family: 'Oswald', sans-serif;
-  font-size: 16px; }
-
+  font-family: "Oswald";
+  font-weight: 200; }
 body {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
   color: #303030;
   background-color: #2d2d2a; }
 
+.flexRow,
+.flexColumn {
+  display: flex; }
+
+.flexRow {
+  flex-direction: row; }
+
+.flexColumn {
+  flex-direction: column; }
+
+.flex1 {
+  flex: 1; }
+
+.flexWrap {
+  flex-wrap: wrap; }
+
+.justifyCenter, .perfectCenter {
+  justify-content: center; }
+
+.justifySpaceAround {
+  justify-content: space-around; }
+
+.alignItemsCenter, .perfectCenter {
+  align-items: center; }
+
+.flexBasis80 {
+  flex-basis: 80%; }
+
+.flexBasis100 {
+  flex-basis: 100%; }
+
+.mainSection {
+  height: 100vh;
+  padding-bottom: 80px; }
+
 li {
   list-style-type: none; }
-
-h1, h3 {
-  font-family: "Oswald-Bold"; }
-
-.titleSection {
-  text-align: center;
-  margin-bottom: 40px; }
 
 header {
   position: fixed;
@@ -31,311 +60,246 @@ header {
   background-color: #2d2d2a;
   background-size: cover;
   z-index: 10;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
   transition: all 0.3s ease-in-out; }
-  header div {
+  header .title {
     text-align: center;
-    font-family: "Oswald-Bold";
-    color: white; }
-    header div h1 {
-      font-size: 1.5em;
-      margin-bottom: 7px; }
-    header div p {
-      color: #ff5953; }
-  header nav ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center; }
-    header nav ul li {
-      margin-right: 15px; }
-      header nav ul li a {
-        font-family: "Oswald-Regular";
-        position: relative;
+    color: white;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 7px; }
+    header .title strong {
+      color: #ff5953;
+      font-weight: normal;
+      font-size: 0.55em;
+      margin-top: 4px;
+      margin-bottom: 10px; }
+  header nav li {
+    margin-right: 15px; }
+    header nav li a {
+      position: relative;
+      color: white;
+      transition: all 0.2s ease-in-out;
+      z-index: 10; }
+      header nav li a:hover {
+        color: #ff5953;
+        text-decoration: none; }
+      header nav li a:focus {
         color: white;
-        transition: all 0.2s ease-in-out;
-        z-index: 3; }
-        header nav ul li a:hover {
-          color: #ff5953;
-          text-decoration: none; }
-        header nav ul li a:focus {
-          color: white;
-          outline: none;
-          text-decoration: none; }
-        header nav ul li a:before {
-          position: absolute;
-          content: "";
-          width: 100%;
-          height: 2px;
-          background-color: #75ffba;
-          bottom: -2px;
-          transition: all 0.4s ease-in-out;
-          transform: scale(0); }
-      header nav ul li .activeLink {
+        outline: none;
+        text-decoration: none; }
+      header nav li a:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: #75ffba;
+        bottom: -2px;
+        transition: all 0.4s ease-in-out;
+        transform: scale(0); }
+    header nav li .activeLink {
+      color: #ff5953; }
+      header nav li .activeLink:before {
+        transform: scale(1); }
+      header nav li .activeLink:focus {
         color: #ff5953; }
-        header nav ul li .activeLink:before {
-          transform: scale(1); }
-        header nav ul li .activeLink:focus {
-          color: #ff5953; }
 
-#home {
+.home {
   background-color: #75ffba;
   height: 100vh; }
-  #home div {
+  .home div {
     background-color: white;
     width: 800px;
     height: 500px;
     margin: 10% auto 0 auto;
     box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49); }
 
-#latestWork {
-  padding: 35px 0;
-  height: 900px;
+.latestWork {
   background-color: #eeeeee;
-  font-family: "Oswald-Bold"; }
-  #latestWork h1 {
-    display: none; }
-  #latestWork .figureContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-around; }
-    #latestWork .figureContainer:last-child {
-      margin-top: 30px; }
-    #latestWork .figureContainer figure {
-      display: none;
-      position: relative;
-      width: 330px;
-      color: white;
-      background-color: #2d2d2a;
-      box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.49);
-      transition: all 0.2s ease-in-out;
-      transform: scale(1); }
-      #latestWork .figureContainer figure .figureInfo {
-        position: absolute;
-        z-index: 2;
-        background-color: rgba(45, 45, 42, 0.965);
-        display: none;
-        width: 100%;
-        height: 100%;
-        padding: 0 3px;
-        cursor: pointer; }
-        #latestWork .figureContainer figure .figureInfo h2 {
-          text-align: center;
-          margin: 35px 0 20px 0;
-          color: #ff5953;
-          font-size: 1.2em; }
-        #latestWork .figureContainer figure .figureInfo ul li {
-          margin-top: 4px;
-          margin-right: 7%;
-          font-size: 0.96em;
-          font-family: "Oswald-Regular";
-          letter-spacing: 1px; }
-          #latestWork .figureContainer figure .figureInfo ul li span {
-            font-size: 0.96em;
-            color: #75ffba; }
-      #latestWork .figureContainer figure p {
-        text-align: center;
-        padding: 10px 10px 0 10px; }
+  font-weight: bold;
+  height: calc(100vh + 160px);
+  padding: 80px 0; }
 
-#skills {
-  height: 630px;
-  padding-top: 10px;
+.work {
+  display: none;
+  position: relative;
+  margin: 0 1% 5% 1%;
+  width: 330px;
+  color: white;
+  background-color: #2d2d2a;
+  box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.49); }
+
+.workInfo {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(45, 45, 42, 0.965);
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 3px;
+  cursor: pointer; }
+  .workInfo h2 {
+    text-align: center;
+    margin: 35px 0 20px 0;
+    color: #ff5953;
+    font-size: 1.2em; }
+  .workInfo li {
+    margin-top: 4px;
+    margin-right: 7%;
+    font-size: 0.96em;
+    letter-spacing: 1px;
+    font-weight: normal; }
+    .workInfo li span {
+      font-size: 0.96em;
+      color: #75ffba; }
+
+.skills {
   background-color: #75ffba; }
-  #skills h1 {
+  .skills h1 {
     color: #2d2d2a;
-    font-family: "Oswald-Bold";
     display: none; }
-  #skills div {
+  .skills div {
     display: none;
     box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
     padding: 35px 0;
     background-color: white;
     color: #ff5953;
     height: 500px; }
-    #skills div:last-child {
+    .skills div:last-child {
       background-color: #eeeeee; }
-    #skills div ul {
+    .skills div ul {
       margin-left: 25%;
       margin-top: 20px; }
-      #skills div ul li p {
+      .skills div ul li p {
         margin-top: 7px;
         color: white;
         text-align: center; }
 
-#aboutMe {
-  background-color: #75ffba;
-  padding: 10px 0;
-  height: 700px; }
-  #aboutMe h1 {
-    margin-top: 30px;
-    text-align: center;
-    margin-bottom: 40px;
-    display: none; }
-  #aboutMe div {
+.aboutMe {
+  background-color: #75ffba; }
+  .aboutMe section {
     display: none;
     height: 500px;
-    background-color: #eeeeee;
+    background-color: #2d2d2a;
     margin-right: 15px;
     box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49); }
-    #aboutMe div .dragMe {
-      position: absolute;
-      width: 50px;
-      height: 50px; }
-    #aboutMe div #drag1 {
-      background-color: rgba(245, 74, 55, 0.67); }
-    #aboutMe div #drag2 {
-      background-color: rgba(245, 74, 55, 0.4); }
-    #aboutMe div #drag3 {
-      background-color: rgba(245, 74, 55, 0.6); }
-    #aboutMe div #drag4 {
-      background-color: rgba(245, 74, 55, 0.5); }
-    #aboutMe div #drag5 {
-      background-color: rgba(245, 74, 55, 0.75); }
-    #aboutMe div #drag6 {
-      background-color: rgba(117, 255, 186, 0.67); }
-    #aboutMe div #drag7 {
-      background-color: rgba(117, 255, 186, 0.4); }
-    #aboutMe div #drag8 {
-      background-color: rgba(117, 255, 186, 0.6); }
-    #aboutMe div #drag9 {
-      background-color: rgba(117, 255, 186, 0.5); }
-    #aboutMe div #drag10 {
-      background-color: rgba(117, 255, 186, 0.75); }
-  #aboutMe .firstDivAboutMe {
-    position: relative;
-    width: 550px; }
-  #aboutMe .lastChildDivAboutMe {
+    .aboutMe section h3 {
+      color: #ff5953;
+      text-align: center;
+      font-size: 1.9em;
+      margin-bottom: 35px; }
+  .aboutMe .firstSectionAboutMe {
+    width: 550px;
+    padding: 35px 65px; }
+  .aboutMe .lastChildSectionAboutMe {
     background-color: white;
-    text-align: center;
-    padding: 15px 45px; }
-    #aboutMe .lastChildDivAboutMe .dragZoneSquare {
-      margin: 35px auto 40px auto;
-      display: block;
-      height: 60px;
-      width: 60px;
-      border: 2px double #2d2d2a;
-      box-shadow: none;
-      background-color: rgba(255, 88, 82, 0.8);
-      animation: largerSquare 3s infinite; }
-    #aboutMe .lastChildDivAboutMe .aboutMeRules {
-      animation: rules 6s infinite;
-      opacity: 0; }
-      #aboutMe .lastChildDivAboutMe .aboutMeRules span {
-        color: #ff5953; }
+    width: 400px;
+    padding: 35px 45px; }
 
-@keyframes rules {
-  0% {
-    opacity: 0; }
-  30% {
-    opacity: 1; }
-  80% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-#contact {
-  background-color: white;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  #contact .blackContainer {
+.liTitle {
+  list-style: square;
+  margin-bottom: 25px;
+  color: #75ffba; }
+  .liTitle ul {
+    margin-top: 10px; }
+  .liTitle li {
+    list-style: initial;
+    color: white;
+    font-size: 0.95em; }
+
+.contact {
+  background-color: white; }
+  .contact .blackContainer {
     position: relative;
     background-color: #2d2d2a;
     width: 500px;
     height: 500px;
     box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49); }
-    #contact .blackContainer .formContainer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      position: absolute;
-      background-color: #75ffba;
-      top: 60px;
-      left: -40px;
-      width: 4px;
-      height: 380px;
-      z-index: 2; }
-      #contact .blackContainer .formContainer h3 {
-        display: none; }
-      #contact .blackContainer .formContainer .closeFormContainer {
-        display: none;
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        background-color: white;
-        right: -30px;
-        top: 16px; }
-        #contact .blackContainer .formContainer .closeFormContainer .buttonCloseForm {
-          position: absolute;
-          width: 30px;
-          height: 30px;
-          top: 15px;
-          left: 15px;
-          cursor: pointer; }
-      #contact .blackContainer .formContainer .form {
-        width: 300px;
-        display: none;
-        padding: 0 30px; }
-        #contact .blackContainer .formContainer .form input {
-          margin-top: 15px;
-          width: 250px; }
-        #contact .blackContainer .formContainer .form textarea {
-          margin-top: 15px;
-          width: 250px; }
-        #contact .blackContainer .formContainer .form .submit {
-          background-color: #2d2d2a;
-          border: none;
-          color: white;
-          height: 40px;
-          width: 100px; }
-    #contact .blackContainer .contactContainer {
-      background-color: #ff5953;
-      width: 0;
-      height: 0;
-      position: absolute;
-      left: 260px;
-      top: 260px;
-      color: white;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-end;
-      padding-right: 35px; }
-      #contact .blackContainer .contactContainer p {
-        display: none; }
-      #contact .blackContainer .contactContainer a {
-        display: none;
-        color: white; }
-
-.bar1, .bar2 {
-  position: absolute;
-  background-color: #ed6a5a;
-  animation-duration: 0.4s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
-  cursor: pointer; }
-
-.bar1 {
-  height: 4px;
-  width: 20px;
-  animation-name: retour1; }
-
-.bar2 {
-  animation-name: retour2;
-  height: 20px;
-  width: 4px; }
-
-.changeBar .bar1 {
-  animation-delay: 0.2s;
-  animation-name: rotate1; }
-
-.changeBar .bar2 {
-  animation-delay: 0.2s;
-  animation-name: rotate2; }
+  .contact .formContainer {
+    overflow: visible !important;
+    position: absolute;
+    background-color: #75ffba;
+    top: 40px;
+    left: -40px;
+    width: 4px;
+    height: 420px;
+    z-index: 2; }
+  .contact h3 {
+    display: none; }
+  .contact .closeFormContainer {
+    display: none;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    right: -30px;
+    top: 16px; }
+  .contact .closeFormContainer::before, .contact .closeFormContainer::after {
+    content: "";
+    position: absolute;
+    background-color: #ed6a5a;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both; }
+  .contact .closeFormContainer::before {
+    height: 4px;
+    width: 20px;
+    animation-name: retour1; }
+  .contact .closeFormContainer::after {
+    animation-name: retour2;
+    height: 20px;
+    width: 4px; }
+  .contact .changeBar::before {
+    animation-name: rotate1; }
+  .contact .changeBar::after {
+    animation-name: rotate2; }
+  .contact .buttonCloseForm {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 15px;
+    left: 15px;
+    cursor: default; }
+  .contact .form {
+    width: 300px;
+    display: none;
+    padding: 0 30px; }
+  .contact input {
+    margin-top: 15px;
+    width: 250px; }
+  .contact textarea {
+    margin-top: 15px;
+    width: 250px;
+    height: 100px;
+    resize: none;
+    font-size: 0.98em; }
+  .contact .submit {
+    display: none;
+    background-color: #2d2d2a;
+    border: none;
+    color: white;
+    height: 40px;
+    width: 100px;
+    margin-top: 15px; }
+  .contact .contactContainer {
+    background-color: #ff5953;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 260px;
+    top: 260px;
+    color: white;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 35px; }
+    .contact .contactContainer p {
+      display: none; }
+    .contact .contactContainer a {
+      display: none;
+      color: white; }
 
 @keyframes retour1 {
   0% {
@@ -383,9 +347,5 @@ header {
     background-color: black; } }
 footer {
   height: 100px; }
-
-#Projets, #Competences, #Moi, #Contact {
-  position: relative;
-  bottom: 100px; }
 
 /*# sourceMappingURL=style.css.map */

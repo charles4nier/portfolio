@@ -1,0 +1,157 @@
+.animeInFilter, .animeOutFilter {
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+  width: 100%;
+  height: 100%;
+}
+
+.animeInFilter {
+  animation-duration: 0.35s;
+}
+
+.animeOutFilter {
+  animation-duration: 0.3s;
+}
+
+.filterInDown {
+  animation-name: filterInDown;
+}
+
+@keyframes filterInDown {
+  0% {
+    height: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    height: 100%;
+  }
+}
+
+.filterInLeft {
+  animation-name: filterInLeft;
+  animation-duration: 0.3s;
+}
+
+@keyframes filterInLeft {
+  0% {
+    width: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.filterInRight {
+  animation-name: filterInRight;
+}
+
+@keyframes filterInRight {
+  0% {
+    width: 0;
+    right: 0;
+    opacity: 0;
+  }
+
+  100% {
+    width: 100%;
+    right: 0;
+    opacity: 1;
+  }
+}
+
+.filterInUp {
+  animation-name: filterInUp;
+}
+
+@keyframes filterInUp {
+  0% {
+    height: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+
+  100% {
+    height: 100%;
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+.filterOutDown {
+    animation-name: filterOutDown;
+}
+
+@keyframes filterOutDown {
+  0% {
+    height: 100%;
+    opacity: 1;
+    bottom: 0;
+  }
+
+  100% {
+    height: 0;
+    opacity: 0;
+    bottom: 0;
+  }
+}
+
+.filterOutLeft {
+    animation-name: filterOutLeft;
+}
+
+@keyframes filterOutLeft{
+  0% {
+    width: 100%;
+    opacity: 1;
+    left: 0;
+  }
+
+  100% {
+    width: 0;
+    opacity: 0;
+    left: 0;
+  }
+}
+
+.filterOutRight {
+  animation-name: filterOutRight;
+}
+
+@keyframes filterOutRight {
+  0% {
+    width: 100%;
+    right: 0;
+    opacity: 1;
+  }
+
+  100% {
+    width: 0;
+    right: 0;
+    opacity: 0;
+  }
+}
+
+.filterOutUp {
+  animation-name: filterOutUp;
+}
+
+@keyframes filterOutUp {
+  0% {
+    height: 100%;
+    top: 0;
+    opacity: 1;
+  }
+
+  100% {
+    height: 0;
+    top: 0;
+    opacity: 0;
+  }
+}

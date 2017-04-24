@@ -106,7 +106,7 @@ $(function () {
 
   //sourcil gauche
   context.lineWidth = "3";
-  context.strokeStyle = "#242424";
+  context.strokeStyle = "#ff5953";
   context.beginPath();
   context.moveTo(368, 225);
   context.lineTo(310, 225);
@@ -149,7 +149,7 @@ $(function () {
 
 ///////////////////////// Les animations sur le restes du site ////////////
 
-  let figure = $("figure");
+  let work = $(".work");
 
       // Section variable //
 
@@ -220,29 +220,30 @@ $(function () {
   let screenAtProjects = false;
 
 
-  function showFigure() {
+  function showWork() {
     $("#latestWork h1").fadeIn().addClass("animated");
-    figure.fadeIn().addClass("animated");
+    work.fadeIn().addClass("animated");
     screenAtProjects = true;
     return screenAtProjects;
   }
 
 
-  onScrollEvent(latestWork, showFigure, screenAtProjects, 350);
+  onScrollEvent(latestWork, showWork, screenAtProjects, 350);
 
   //////////// création des comportements qui permettent d"avoir des infos ques sur les sites créés //////////
 
   let linkToProjects = [
     "https://www.learn-eat.fr/",
     "http://www.ikmusic.org/",
-    "http://fablab.simplon.co/",
-    "#",
+    "https://github.com/charles4nier/site_marchand_simplon",
+    "https://github.com/charles4nier/myBlog",
     "https://dzov.github.io/Act/",
     "https://charles4nier.github.io/royco/"
   ];
 
-  $("figure").mouseenter(function() {
-     $("#" + $(this).attr("id") + "FigureInfo").slideDown(350,
+  $(".work").mouseenter(function() {
+     let filter = $("#" + $(this).attr("id") + "workInfo");
+     filter.slideDown(350,
      "easeInCubic",
      function() {
      });
@@ -259,85 +260,126 @@ $(function () {
      });
   });
 
-  $("figure").mouseleave(function() {
-    $("#" + $(this).attr("id") + "FigureInfo").slideUp(225,
+  $(".work").mouseleave(function() {
+    let filter = $("#" + $(this).attr("id") + "workInfo");
+
+    filter.slideUp(225,
     function() {
     });
   });
+//
+//   let previousX = 0;
+//   let vectorX = 0;
+//   let xComparator = 0;
+//
+//   let previousY = 0;
+//   let vectorY = 0;
+//   let yComparator = 0;
+//
+//   let textInfo = $(".textInfo");
+//
+// //Animation d'entrée des informations
+//   function filterIn(elem, animation) {
+//     elem.removeClass()
+//         .addClass("figureInfo")
+//         .addClass(animation)
+//   }
+//
+//   $(document).mousemove(function(e) {
+//     let x = e.clientX;
+//     let y = e.clientY;
+//
+//     vectorX = x - previousX;
+//     previousX = x;
+//     // permet de rendre positif un nombre négatif //
+//     xComparator = (vectorX * vectorX);
+//
+//     vectorY = y - previousY;
+//     previousY = y;
+//     // permet de rendre positif un nombre négatif //
+//     yComparator = (vectorY * vectorY);
+//
+//     $("figure").mouseenter(function() {
+//
+//       $(this).click(function() {
+//         let i = 0;
+//         for(; i < linkToProjects.length; i++) {
+//           let number = i + 1;
+//           let idComparator = number.toString()
+//           if(idComparator == $(this).attr("id")) {
+//               window.open(linkToProjects[i], true);
+//           }
+//         }
+//       });
+//
+//       let filter = $("#" + $(this).attr("id") + "FigureInfo");
+//
+//       //Animation de sorties des informations
+//         function filterOut(elem, animation) {
+//           elem.removeClass()
+//               .addClass('figureInfo')
+//               .addClass(animation);
+//         }
+//
+//
+//       if(yComparator > xComparator) {
+//
+//         if(vectorY > 0) {
+//
+//           filterIn(filter, "animeInFilter filterInDown");
+//
+//         } else {
+//
+//           filterIn(filter, "animeInFilter filterInUp");
+//         }
+//
+//       } else {
+//
+//         if(vectorX > 0) {
+//
+//           filterIn(filter, "animeInFilter filterInLeft");
+//
+//         } else {
+//
+//           filterIn(filter, "animeInFilter filterInRight");
+//
+//         }
+//       }
+//
+//       $('figure').mouseleave(function() {
+//         // filter.removeClass()
+//         //       .addClass('figureInfo')
+//         //       .addClass("animeOutFilter filterOutDown");
+//
+//         if(yComparator > xComparator) {
+//
+//           if(vectorY > 0) {
+//
+//             filterIn(filter, "animeOutFilter filterOutDown");
+//
+//           } else {
+//
+//             filterIn(filter, "animeOutFilter filterOutUp");
+//           }
+//
+//         } else {
+//
+//           if(vectorX > 0) {
+//
+//             filterIn(filter, "animeOutFilter filterOutLeft");
+//
+//           } else {
+//
+//             filterIn(filter, "animeOutFilter filterOutRight");
+//
+//           }
+//         }
+//       });
+//
+//     });
+//
+//   });
 
-  // let previousX = 0;
-  // let vectorX = 0;
-  // let xComparator = 0;
-  //
-  // let previousY = 0;
-  // let vectorY = 0;
-  // let yComparator = 0;
-  //
-  // $(document).mousemove(function(e) {
-  //   let x = e.clientX;
-  //   let y = e.clientY;
-  //
-  //   vectorX = x - previousX;
-  //   previousX = x;
-  //   // permet de rendre positif un nombre négatif //
-  //   xComparator = (vectorX * vectorX);
-  //
-  //   vectorY = y - previousY;
-  //   previousY = y;
-  //   // permet de rendre positif un nombre négatif //
-  //   yComparator = (vectorY * vectorY);
-  //
-    // $("figure").mouseenter(function() {
-  //     if(yComparator > xComparator) {
-  //       if(vectorY > 0) {
-  //         $("#" + $(this).attr("id") + "FigureInfo").css({
-  //           "display" : "block",
-  //           "width" : "100%"
-  //         });
-  //         $("#" + $(this).attr("id") + "FigureInfo").animate({
-  //           "height": "100%"
-  //         }, 450);
-  //
-  //       } else {
-  //         $("#" + $(this).attr("id") + "FigureInfo").css({
-  //           "display" : "block",
-  //           "width" : "100%",
-  //           "bottom" : "0"
-  //         });
-  //         $("#" + $(this).attr("id") + "FigureInfo").animate({
-  //           "height": "100%",
-  //           "top": "0"
-  //         }, 450);
-  //       }
-  //     } else {
-  //       if(vectorX > 0) {
-  //         $("#" + $(this).attr("id") + "FigureInfo").css({
-  //           "display" : "block",
-  //           "height" : "100%"
-  //         });
-  //         $("#" + $(this).attr("id") + "FigureInfo").animate({
-  //           "width": "100%"
-  //         }, 450);
-  //       } else {
-  //         $("#" + $(this).attr("id") + "FigureInfo").css({
-  //           "display" : "block",
-  //           "height" : "100%",
-  //           "right" : "0"});
-  //         $("#" + $(this).attr("id") + "FigureInfo").animate({
-  //           "width": "100%",
-  //           "left": "0"
-  //         }, 450);
-  //       }
-  //     }
-  //   });
-  //
-  //   $("figure").mouseleave(function() {
-  //     $("#1FigureInfo").css({"backgroundColor":"red",
-  //     "height" : "15px"
-  //     });
-  //   });
-  //
-  // });
 
 ////// Animations des progress bar dans la partie Compétences //////
 
@@ -383,62 +425,11 @@ $(function () {
 
   let screenAtAboutMe = false;
 
-  let dragMe = [
-    $("#drag1"),
-    $("#drag2"),
-    $("#drag3"),
-    $("#drag4"),
-    $("#drag5"),
-    $("#drag6"),
-    $("#drag7"),
-    $("#drag8"),
-    $("#drag9"),
-    $("#drag10")
-  ];
-
-  let eases = [
-    "easeInOutExpo",
-    "easeInOutSine",
-  ];
-
-  let interval = 1200;
-
-  function showDraggableDiv() {
-    for (let i in dragMe) {
-      dragMe[i].css(
-        {
-          "top" : Math.floor(Math.random() * 450) + "px",
-          "left" : Math.floor(Math.random() * 500) + "px"
-        }
-      );
-
-      dragMe[i].fadeIn().addClass("animated");
-    }
-  }
-
-  function moveDraggableDiv() {
-    for (let i in dragMe) {
-      dragMe[i].animate(
-        {
-          "top" : Math.floor(Math.random() * 450),
-          "left" : Math.floor(Math.random() * 500)
-        },
-        Math.floor((Math.random() + 1) * interval),
-        eases[Math.floor(Math.random() * eases.length)]
-      );
-    }
-  }
-
-  setInterval(moveDraggableDiv, interval);
-
   function showAboutMe() {
-    $("#aboutMe h1, #aboutMe .dragZone").fadeIn().addClass("animated");
-    setTimeout(showDraggableDiv, 650);
-    setTimeout(moveDraggableDiv, 800);
+    $("#aboutMe h1, #aboutMe section").fadeIn().addClass("animated");
   }
 
   onScrollEvent(aboutMe, showAboutMe, screenAtAboutMe, 250);
-
 
 ///////// Apparition du formulaire ////////////////////
 
@@ -457,6 +448,7 @@ $(function () {
         $(".form").fadeIn();
         $(".closeFormContainer").fadeIn();
         $(".formContainer h3").fadeIn();
+        $('.submit').fadeIn();
       });
 
     function showContact() {
@@ -484,6 +476,33 @@ $(function () {
   }
 
   onScrollEvent(contact, showForm, screenAtContact, 350);
+
+  // Envoi des données du formulaires et comprotement du formulaire
+
+
+  $('input.submit').click(function() {
+    $(".form").fadeOut(100);
+    // $('').fadeOut(100);
+    // $('.form input, .form textarea').fadeOut(100);
+    setTimeout(function() {
+      $('.formContainer').load('../view/sentOk.html', function() {
+        $('.closeFormContainer').addClass("changeBar");
+        $('.buttonCloseForm').css('cursor', 'pointer');
+      });
+    },
+     100);
+  });
+
+  $('.buttonCloseForm').click(function() {
+    $(".formContainer p").fadeOut(100);
+    setTimeout(function() {
+      $(".form").fadeIn();
+      $('.closeFormContainer').removeClass("changeBar");
+      $('.buttonCloseForm').css('cursor', 'default');
+      $('.formContainer').load('../view/inputElt.html', function() {
+      });
+    }, 150);
+  });
 
   //fermeture de la fonction jquery
 

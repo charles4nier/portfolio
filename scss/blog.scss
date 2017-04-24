@@ -1,0 +1,138 @@
+$grey : #bababa;
+$white: white;
+$blue: #337ab7;
+
+@mixin rounded-corners {
+  border-radius: 5px;
+}
+
+.flexRow,
+.flexColumn {
+  display: flex;
+}
+
+.flexRow {
+  flex-direction: row;
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.justifySpaceAround {
+  justify-content: space-around;
+}
+
+.justifySpaceBetween {
+  justify-content: space-between;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.flexBasis40 {
+  flex-basis: 80%;
+}
+
+.flexBasis80 {
+  flex-basis: 80%;
+}
+
+.flexBasis100 {
+  flex-basis: 100%;
+}
+
+.perfectCenter {
+  @extend .justifyCenter;
+  @extend .alignItemsCenter;
+}
+
+.mainSection {
+  height: 100vh;
+  padding-bottom: 80px;
+}
+
+.testZone {
+  width : 90%;
+  height: 250px;
+  background-color: $blue;
+  border: 1px solid $grey;
+  @include rounded-corners;
+}
+
+body {
+  background-color: $white;
+}
+
+header {
+  background-color: black;
+  color: $white;
+
+  button a {
+    color: $white;
+  }
+
+  nav {
+    background-color: $grey;
+    padding: 5px 0;
+  }
+
+  input {
+    width: 250px;
+  }
+
+  li {
+    margin: 5px 15px 0 15px;
+    list-style-type: none;
+  }
+}
+
+
+
+main {
+  background-color: $white;
+  align-items: flex-start;
+
+  nav {
+    padding: 20px 50px 50px 50px;
+    border: 1px solid $grey;
+    margin-top: 30px;
+    @include rounded-corners;
+  }
+
+  article {
+    background-color: white;
+    padding: 20px 50px 50px 50px;
+    border: 1px solid $grey;
+    margin-top: 30px;
+    margin-right: 150px;
+    width: 55%;
+    @include rounded-corners;
+    h2 {
+      margin-bottom: 30px;
+    }
+    p, pre {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+
+footer {
+  background-color: black;
+  margin-top: 30px;
+  height: 80px;
+}

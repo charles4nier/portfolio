@@ -1,20 +1,20 @@
 @font-face {
-  src: url("../fonts/Oswald-Bold.ttf");
-  font-family: "Oswald-Bold";
+  src: url("../fonts/Oswald-Regular.ttf");
+  font-family: "Oswald";
+  font-weight: normal;
 }
 
-
 @font-face {
-  src: url("../fonts/Oswald-Regular.ttf");
-  font-family: "Oswald-Regular";
+  src: url("../fonts/Oswald-Bold.ttf");
+  font-family: "Oswald";
+  font-weight: bold;
 }
 
 @font-face {
   src: url("../fonts/Oswald-Light.ttf");
-  font-family: "Oswald-Light";
+  font-family: "Oswald";
+  font-weight: 200;
 }
-
-
 
 $lightGrey: #eeeeee;
 $pink: #ff5953;
@@ -24,29 +24,66 @@ $black: #2d2d2a;
 $darkGrey: #333333;
 $orange : $lagoon;
 
-
-
-* {
+body {
   font-family: 'Oswald', sans-serif;
   font-size: 16px;
-}
-
-body {
   color: #303030;
   background-color: $black;
 }
 
+.flexRow,
+.flexColumn {
+  display: flex;
+}
+
+.flexRow {
+  flex-direction: row;
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.justifySpaceAround {
+  justify-content: space-around;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.flexBasis80 {
+  flex-basis: 80%;
+}
+
+.flexBasis100 {
+  flex-basis: 100%;
+}
+
+.perfectCenter {
+  @extend .justifyCenter;
+  @extend .alignItemsCenter;
+}
+
+.mainSection {
+  height: 100vh;
+  padding-bottom: 80px;
+}
+
 li {
   list-style-type: none;
-}
-
-h1, h3 {
-  font-family: "Oswald-Bold";
-}
-
-.titleSection {
-  text-align: center;
-  margin-bottom: 40px;
 }
 
 header {
@@ -55,71 +92,64 @@ header {
   background-color: $black;
   background-size: cover;
   z-index: 10;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
   transition: all 0.3s ease-in-out;
-  div {
+  .title {
     text-align: center;
-    font-family: "Oswald-Bold";
     color: $white;
-    h1 {
-      font-size: 1.5em;
-      margin-bottom: 7px;
-    }
-    p {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 7px;
+    strong {
       color: $pink;
+      font-weight: normal;
+      font-size: 0.55em;
+      margin-top: 4px;
+      margin-bottom: 10px;
     }
   }
   nav {
-    ul {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      li {
-        margin-right: 15px;
-        a {
-          font-family: "Oswald-Regular";
-          position: relative;
-          color: $white;
-          transition: all 0.2s ease-in-out;
-          z-index: 3;
-          &:hover {
-            color: $pink;
-            text-decoration: none;
-          }
-          &:focus {
-            color: $white;
-            outline: none;
-            text-decoration: none;
-          }
-          &:before {
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: 2px;
-            background-color: $lagoon;
-            bottom : -2px;
-            transition: all 0.4s ease-in-out;
-            transform: scale(0);
-          }
+    li {
+      margin-right: 15px;
+      a {
+        position: relative;
+        color: $white;
+        transition: all 0.2s ease-in-out;
+        z-index: 10;
+        &:hover {
+          color: $pink;
+          text-decoration: none;
         }
-        .activeLink {
-            color: $pink;
-          &:before {
-            transform: scale(1);
-          }
-          &:focus {
-            color: $pink;
-          }
+        &:focus {
+          color: $white;
+          outline: none;
+          text-decoration: none;
+        }
+        &:before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 2px;
+          background-color: $lagoon;
+          bottom : -2px;
+          transition: all 0.4s ease-in-out;
+          transform: scale(0);
+        }
+      }
+      .activeLink {
+        color: $pink;
+        &:before {
+          transform: scale(1);
+        }
+        &:focus {
+          color: $pink;
         }
       }
     }
   }
 }
 
-#home {
+.home {
   background-color: $lagoon;
   height: 100vh;
   div {
@@ -128,87 +158,60 @@ header {
     height: 500px;
     margin: 10% auto 0 auto;
     box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
-    canvas {
-    }
   }
 }
 
-#latestWork {
-  padding: 35px 0;
-  height: 900px;
+.latestWork {
   background-color: $lightGrey;
-  font-family: "Oswald-Bold";
-  h1 {
-    display: none;
-  }
-  .figureContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    &:last-child {
-      margin-top: 30px;
-    }
-    figure {
-      display: none;
-      position: relative;
-      width: 330px;
-      color: $white;
-      background-color: $black;
-      box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.49);
-      transition: all 0.2s ease-in-out;
-      transform: scale(1);
+  font-weight: bold;
+  height: calc(100vh + 160px);
+  padding: 80px 0;
+}
 
-      // &:hover {
-      //   transform: scale(1.1);
-      //   background-color: $lagoon;
-      //   color: $black;
-      //   box-shadow: 0px 10px 10px rgba(100, 100, 100, 0.49);
-      // }
-      .figureInfo {
-        position: absolute;
-        z-index: 2;
-        background-color: rgba(45,45,42, 0.965);
-        display: none;
-        width: 100%;
-        height: 100%;
-        padding: 0 3px;
-        cursor: pointer;
-        h2 {
-          text-align: center;
-          margin: 35px 0 20px 0;
-          color: $pink;
-          font-size: 1.2em;
-        }
-        ul {
-          li {
-            margin-top: 4px;
-            margin-right: 7%;
-            font-size: 0.96em;
-            font-family: "Oswald-Regular";
-            letter-spacing: 1px;
-            span {
-              font-size: 0.96em;
-              color: $lagoon;
-            }
-          }
-        }
-      }
-      p {
-        text-align: center;
-        padding: 10px 10px 0 10px;
-      }
+.work {
+  display: none;
+  position: relative;
+  margin: 0 1% 5% 1%;
+  width: 330px;
+  color: $white;
+  background-color: $black;
+  box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.49);
+}
+
+.workInfo {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(45,45,42, 0.965);
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 3px;
+  cursor: pointer;
+  h2 {
+    text-align: center;
+    margin: 35px 0 20px 0;
+    color: $pink;
+    font-size: 1.2em;
+  }
+  li {
+    margin-top: 4px;
+    margin-right: 7%;
+    font-size: 0.96em;
+    letter-spacing: 1px;
+    font-weight: normal;
+    span {
+      font-size: 0.96em;
+      color: $lagoon;
     }
   }
 }
 
 
-#skills {
-  height: 630px;
-  padding-top: 10px;
+
+.skills {
   background-color: $lagoon;
   h1 {
     color: $black;
-    font-family: "Oswald-Bold";
     display: none;
   }
   div {
@@ -235,252 +238,173 @@ header {
   }
 }
 
-#aboutMe {
+
+.aboutMe {
   background-color: $lagoon;
-  padding: 10px 0;
-  height: 700px;
-  h1 {
-    margin-top: 30px;
-    text-align: center;
-    margin-bottom: 40px;
-    display: none;
-  }
-  div {
+  section {
     display: none;
     height: 500px;
-    background-color: $lightGrey;
+    background-color: $black;
     margin-right: 15px;
     box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
-    .dragMe{
-      position: absolute;
-      width: 50px;
-      height: 50px;
-    }
-    #drag1 {
-      background-color: rgba(245,74,55, 0.67);
-    }
-    #drag2 {
-      background-color: rgba(245,74,55, 0.40);
-    }
-    #drag3 {
-      background-color: rgba(245,74,55, 0.60);
-    }
-    #drag4 {
-      background-color: rgba(245,74,55, 0.5);
-    }
-    #drag5 {
-      background-color: rgba(245,74,55, 0.75);
-    }
-    #drag6 {
-      background-color: rgba(117,255,186, 0.67);
-    }
-    #drag7 {
-      background-color: rgba(117,255,186, 0.40);
-    }
-    #drag8 {
-      background-color: rgba(117,255,186, 0.60);
-    }
-    #drag9 {
-      background-color: rgba(117,255,186, 0.5);
-    }
-    #drag10 {
-      background-color: rgba(117,255,186, 0.75);
+    h3 {
+      color: $pink;
+      text-align: center;
+      font-size: 1.9em;
+      margin-bottom: 35px;
     }
   }
-  .firstDivAboutMe {
-    position: relative;
+  .firstSectionAboutMe {
     width: 550px;
+    padding: 35px 65px;
   }
-  .lastChildDivAboutMe {
+  .lastChildSectionAboutMe {
     background-color: $white;
-    text-align: center;
-    padding: 15px 45px;
-    .dragZoneSquare {
-      margin: 35px auto 40px auto;
-      display: block;
-      height : 60px;
-      width: 60px;
-      border: 2px double $black;
-      box-shadow: none;
-      background-color: rgba(255, 88, 82, 0.80);
-      animation: largerSquare 3s infinite;
-    }
-    .aboutMeRules {
-      animation: rules 6s infinite;
-      opacity: 0;
-      span {
-        color: $pink;
-      }
-    }
+    width: 400px;
+    padding: 35px 45px;
   }
 }
 
-
-@keyframes rules {
-  0% {
-      opacity: 0;
-    }
-  30% {
-      opacity: 1;
-    }
-  80% {
-      opacity: 1;
-    }
-  100% {
-      opacity: 0;
-    }
+.liTitle {
+  list-style: square;
+  margin-bottom: 25px;
+  color: $lagoon;
+  ul {
+    margin-top: 10px;
+  }
+  li {
+    list-style: initial;
+    color: $white;
+    font-size: 0.95em;
+  }
 }
 
-
-
-#contact {
+.contact {
   background-color: $white;
-  height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   .blackContainer {
     position: relative;
     background-color: $black;
     width: 500px;
     height: 500px;
     box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
+  }
 
-    .formContainer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      position:absolute;
-      background-color: $lagoon;
-      top: 60px;
-      left: -40px;
-      width: 4px;
-      height: 380px;
-      z-index: 2;
-      h3 {
-        display: none;
-      }
+  .formContainer {
+    overflow: visible !important;
+    position:absolute;
+    background-color: $lagoon;
+    top: 40px;
+    left: -40px;
+    width: 4px;
+    height: 420px;
+    z-index: 2;
+  }
 
-      .closeFormContainer {
-        display: none;
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        background-color: $white;
-        right: -30px;
-        top: 16px;
-        // transition: all 0.6s ease-in-out;
-        // transform: scale(0);
-        .buttonCloseForm {
-          position: absolute;
-          width: 30px;
-          height: 30px;
-          top: 15px;
-          left: 15px;
-          cursor: pointer;
-        }
-      }
+  h3 {
+    display: none;
+  }
 
-      .form {
-        width: 300px;
-        display: none;
-        padding: 0 30px;
-        input {
-          margin-top: 15px;
-          width: 250px;
-        }
-        textarea {
-          margin-top: 15px;
-          width: 250px;
-        }
-        .submit {
-          background-color: $black;
-          border: none;
-          color: $white;
-          height: 40px;
-          width: 100px;
-        }
-      }
+  //animation des bars de la fermeture du formulaire
+
+  .closeFormContainer {
+    display: none;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: $white;
+    right: -30px;
+    top: 16px;
+  }
+
+  .closeFormContainer::before, .closeFormContainer::after {
+    content: "";
+    position: absolute;
+    background-color: #ed6a5a;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+  }
+
+  .closeFormContainer::before {
+    height: 4px;
+    width : 20px;
+    animation-name: retour1;
+  }
+
+  .closeFormContainer::after {
+    animation-name: retour2;
+    height: 20px;
+    width : 4px;
+  }
+
+  .changeBar::before {
+    animation-name: rotate1;
+  }
+
+  .changeBar::after {
+    animation-name: rotate2;
+  }
+
+  .buttonCloseForm {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 15px;
+    left: 15px;
+    cursor: default;
+  }
+
+  .form {
+    width: 300px;
+    display: none;
+    padding: 0 30px;
+  }
+
+  input {
+    margin-top: 15px;
+    width: 250px;
+  }
+
+  textarea {
+    margin-top: 15px;
+    width: 250px;
+    height: 100px;
+    resize: none;
+    font-size: 0.98em;
+  }
+
+  .submit {
+    display: none;
+    background-color: $black;
+    border: none;
+    color: $white;
+    height: 40px;
+    width: 100px;
+    margin-top: 15px;
+  }
+
+  .contactContainer {
+    background-color: $pink;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 260px;
+    top: 260px;
+    color: $white;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 35px;
+    p {
+      display: none;
     }
-
-    .contactContainer {
-      background-color: $pink;
-      width: 0;
-      height: 0;
-      position: absolute;
-      left: 260px;
-      top: 260px;
+    a {
+      display: none;
       color: $white;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-end;
-      padding-right: 35px;
-      p {
-        display: none;
-      }
-      a {
-        display: none;
-        color: $white;
-      }
     }
   }
-}
-
-
-
-// animation des figureInfo
-
-// .activeFigureInfoTop {
-//   display: block;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   animation-name: slideInTop;
-//   animation-duration: 0.4s;
-//   animation-timing-function: ease-in-out;
-//   animation-fill-mode: both;
-// }
-//
-// @keyframes slideInTop {
-//   0% {height: 0;}
-//   100% { height: 100%;}
-// }
-
-
-//animation des bars de la fermeture du formulaire
-
-.bar1, .bar2 {
-  position: absolute;
-  background-color: #ed6a5a;
-  animation-duration: 0.4s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
-  cursor: pointer;
-}
-
- .bar1 {
-  height: 4px;
-  width : 20px;
-  animation-name: retour1;
-}
-
- .bar2 {
-  animation-name: retour2;
-  height: 20px;
-  width : 4px;
-}
-
-.changeBar .bar1 {
-  animation-delay: 0.2s;
-  animation-name: rotate1;
-}
-
-.changeBar .bar2 {
- animation-delay: 0.2s;
- animation-name:rotate2;
 }
 
 @keyframes retour1 {
@@ -507,19 +431,3 @@ header {
 footer {
   height: 100px;
 }
-
-#Projets,#Competences, #Moi, #Contact {
-  position: relative;
-  bottom: 100px;
-}
-
-// .blackMenu {
-//   opacity: 0;
-//   // margin-left: 5%;
-//   h1 {
-//     color: $white;
-//   }
-//   a {
-//     color: $white;
-//   }
-// }
